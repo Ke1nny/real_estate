@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -106,8 +105,8 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .prop-card{background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .45s var(--ease-out-expo),box-shadow .45s var(--ease-out-expo);cursor:pointer;}
 .prop-card:hover{transform:translateY(-10px) scale(1.01);box-shadow:var(--shadow-lg);}
 .prop-card__media{position:relative;height:230px;overflow:hidden;background:var(--bg3);}
-.prop-card__svg{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out-expo);}
-.prop-card:hover .prop-card__svg{transform:scale(1.04);}
+.prop-card__img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease-out-expo);}
+.prop-card:hover .prop-card__img{transform:scale(1.04);}
 .prop-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,14,36,.6) 0%,transparent 55%);transition:opacity .4s;}
 .prop-card:hover .prop-card__overlay{opacity:.85;}
 .prop-card__badge{position:absolute;top:1rem;left:1rem;background:var(--red);color:white;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;}
@@ -198,9 +197,7 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease-out-expo),transform .75s var(--ease-out-expo);transition-delay:var(--delay,0s);}
 .reveal.in-view{opacity:1;transform:translateY(0);}
 
-/* =====================================================
-   CAROUSEL
-   ===================================================== */
+/* CAROUSEL */
 .carousel-section{padding:6rem 0;background:var(--bg3);}
 .carousel{position:relative;width:100%;}
 .carousel__viewport{overflow:hidden;border-radius:var(--radius-lg);}
@@ -208,8 +205,8 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .carousel__slide{flex:0 0 100%;min-width:0;}
 .carousel__card{display:grid;grid-template-columns:1fr 1fr;min-height:520px;background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);}
 .carousel__media{position:relative;overflow:hidden;background:var(--bg3);min-height:340px;}
-.carousel__media svg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out-expo);}
-.carousel__card:hover .carousel__media svg{transform:scale(1.04);}
+.carousel__media img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;transition:transform .7s var(--ease-out-expo);}
+.carousel__card:hover .carousel__media img{transform:scale(1.04);}
 .carousel__media-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,14,36,.55) 0%,transparent 50%);}
 .carousel__badge{position:absolute;top:1.25rem;left:1.25rem;background:var(--red);color:white;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;z-index:2;}
 .carousel__badge--premium{background:var(--blue);}
@@ -237,13 +234,10 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .carousel__dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--border);cursor:pointer;transition:background .3s,transform .3s,width .35s var(--ease-out-expo);padding:0;}
 .carousel__dot.active{background:var(--blue);width:24px;border-radius:4px;}
 
-/* =====================================================
-   ABOUT US SECTION
-   ===================================================== */
+/* ABOUT US SECTION */
 .about-section{padding:7rem 0;background:var(--bg);position:relative;overflow:hidden;}
 .about-section::before{content:'';position:absolute;top:-160px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(26,63,163,.06) 0%,transparent 70%);pointer-events:none;}
 .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
-.about-left{}
 .about-left .section__label{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem;}
 .about-left h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--text);margin-bottom:1.25rem;line-height:1.1;}
 .about-left h2 em{color:var(--blue);}
@@ -262,7 +256,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .about-pillar__icon{font-size:1.5rem;margin-bottom:.6rem;line-height:1;}
 .about-pillar h4{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.3rem;}
 .about-pillar p{font-size:.76rem;color:var(--text2);line-height:1.6;}
-.about-right{}
 .about-timeline{position:relative;padding-left:2rem;}
 .about-timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:0;width:1.5px;background:linear-gradient(to bottom,var(--blue),var(--red),transparent);}
 .about-timeline-item{position:relative;margin-bottom:2.25rem;}
@@ -280,7 +273,101 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 .about-value-row__icon{width:32px;height:32px;border-radius:8px;background:rgba(26,63,163,.08);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0;margin-top:2px;}
 .about-value-row__text strong{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:1px;}
 .about-value-row__text span{font-size:.76rem;color:var(--text2);line-height:1.55;}
+/* CONTACT SECTION */
+.contact-card{
+  max-width:900px;
+  margin:0 auto;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:3rem;
+  text-align:center;
+  box-shadow:var(--shadow-lg);
+}
 
+.contact-card h3{
+  font-size:2rem;
+  margin-bottom:1rem;
+  color:var(--text);
+}
+
+.contact-card p{
+  color:var(--text2);
+  max-width:650px;
+  margin:0 auto 2rem;
+  line-height:1.8;
+}
+
+.contact-details{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+  margin:2rem 0;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1.5rem;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:12px;
+  text-align:left;
+}
+
+.contact-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--blue);
+  color:white;
+  border-radius:12px;
+  font-size:1.4rem;
+  flex-shrink:0;
+}
+
+.contact-item span{
+  display:block;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--text3);
+  margin-bottom:.35rem;
+}
+
+.contact-item a{
+  text-decoration:none;
+  color:var(--text);
+  font-weight:600;
+  font-size:1rem;
+  transition:color .25s;
+}
+
+.contact-item a:hover{
+  color:var(--blue);
+}
+
+.contact-cta{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+
+@media(max-width:600px){
+  .contact-card{
+    padding:2rem 1.5rem;
+  }
+
+  .contact-item{
+    flex-direction:column;
+    text-align:center;
+  }
+}
 @media(max-width:900px){
   .about-inner{grid-template-columns:1fr;}
   .about-pillars{grid-template-columns:1fr 1fr;}
@@ -289,8 +376,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
   .about-pillars{grid-template-columns:1fr;}
   .about-section{padding:4rem 0;}
 }
-
-/* Carousel responsive */
 @media(max-width:860px){
   .carousel__card{grid-template-columns:1fr;min-height:auto;}
   .carousel__media{min-height:260px;}
@@ -416,22 +501,14 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
       <div class="section__rule"></div>
     </div>
     <div class="properties-grid">
+
+      <!-- Card 1 -->
       <article class="prop-card reveal" style="--delay:0.1s">
         <div class="prop-card__media">
-          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4f0"/><stop offset="100%" stop-color="#deeeff"/></linearGradient><linearGradient id="grass1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a9e4a"/><stop offset="100%" stop-color="#3a7a2a"/></linearGradient></defs>
-            <rect width="600" height="340" fill="url(#sky1)"/><ellipse cx="460" cy="70" rx="60" ry="24" fill="white" opacity=".7"/><ellipse cx="490" cy="62" rx="44" ry="18" fill="white" opacity=".85"/><ellipse cx="120" cy="55" rx="45" ry="18" fill="white" opacity=".65"/>
-            <rect x="0" y="235" width="600" height="105" fill="url(#grass1)"/>
-            <rect x="80" y="148" width="440" height="120" fill="#f0e6d2"/><polygon points="80,148 300,82 520,148" fill="#ddd0b4"/><rect x="80" y="144" width="440" height="12" fill="#c0a060"/>
-            <rect x="108" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/><rect x="178" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/>
-            <rect x="370" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/><rect x="440" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/>
-            <rect x="260" y="195" width="80" height="73" fill="#a07040"/><rect x="250" y="188" width="100" height="10" fill="#806030"/>
-            <rect x="30" y="188" width="28" height="80" fill="#b07848"/><circle cx="44" cy="180" r="26" fill="#4a8a3a"/>
-            <rect x="542" y="188" width="28" height="80" fill="#b07848"/><circle cx="556" cy="180" r="26" fill="#4a8a3a"/>
-          </svg>
+          <img src="5bed.jpeg" alt="Lekki Penthouse" class="prop-card__img"/>
           <div class="prop-card__overlay"></div>
           <span class="prop-card__badge">For Sale</span>
-          <div class="prop-card__price">N400,850,000</div>
+          <div class="prop-card__price">N450,850,000</div>
           <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
         <div class="prop-card__body">
@@ -445,66 +522,49 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
           </div>
         </div>
       </article>
+
+      <!-- Card 2 -->
       <article class="prop-card reveal" style="--delay:0.22s">
         <div class="prop-card__media">
-          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#060d1e"/><stop offset="100%" stop-color="#0e1e3d"/></linearGradient></defs>
-            <rect width="600" height="340" fill="url(#night)"/>
-            <circle cx="520" cy="48" r="16" fill="#fffacd" opacity=".85"/><circle cx="502" cy="45" r="8" fill="#0e1e3d"/>
-            <circle cx="80" cy="30" r="2.5" fill="white" opacity=".8"/><circle cx="180" cy="18" r="2" fill="white" opacity=".6"/><circle cx="320" cy="40" r="2" fill="white" opacity=".7"/><circle cx="420" cy="22" r="3" fill="white" opacity=".5"/><circle cx="240" cy="12" r="1.5" fill="white" opacity=".9"/>
-            <rect x="0" y="200" width="600" height="140" fill="#040a16"/>
-            <rect x="100" y="60" width="400" height="185" fill="#182848"/><rect x="100" y="55" width="400" height="12" fill="#c0272d"/>
-            <rect x="115" y="80" width="68" height="44" fill="#4a8fc8" opacity=".55"/><rect x="200" y="80" width="68" height="44" fill="#4a8fc8" opacity=".6"/>
-            <rect x="332" y="80" width="68" height="44" fill="#4a8fc8" opacity=".55"/><rect x="417" y="80" width="68" height="44" fill="#4a8fc8" opacity=".6"/>
-            <rect x="115" y="140" width="68" height="44" fill="#4a8fc8" opacity=".45"/><rect x="200" y="140" width="68" height="44" fill="#ffe87a" opacity=".25"/>
-            <rect x="332" y="140" width="68" height="44" fill="#4a8fc8" opacity=".45"/><rect x="417" y="140" width="68" height="44" fill="#ffe87a" opacity=".3"/>
-            <rect x="255" y="185" width="90" height="60" fill="#0e1e3d"/>
-          </svg>
+          <img src="5bed2.jpeg" alt="Abuja Luxury Penthouse" class="prop-card__img"/>
           <div class="prop-card__overlay"></div>
           <span class="prop-card__badge prop-card__badge--premium">Premium</span>
-          <div class="prop-card__price">N500,500,000</div>
+          <div class="prop-card__price">N990,500,000</div>
           <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
         <div class="prop-card__body">
-          <h3 class="prop-card__title">Abuja Luxury Penthouse</h3>
-          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abuja, Nigeria</p>
+          <h3 class="prop-card__title">Osapa London penthouse</h3>
+          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Osapa london, Lekki, Lagos.</p>
           <div class="prop-card__specs">
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>4 Beds</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Beds</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>4 Baths</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>5,800 sq ft</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>City View</span>
           </div>
         </div>
       </article>
+
+      <!-- Card 3 -->
       <article class="prop-card reveal" style="--delay:0.34s">
         <div class="prop-card__media">
-          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4ab0e8"/><stop offset="100%" stop-color="#90d0f8"/></linearGradient><linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a8acc"/><stop offset="100%" stop-color="#0a5090"/></linearGradient></defs>
-            <rect width="600" height="340" fill="url(#sky3)"/>
-            <ellipse cx="150" cy="65" rx="70" ry="26" fill="white" opacity=".75"/><ellipse cx="460" cy="50" rx="55" ry="20" fill="white" opacity=".65"/>
-            <rect x="0" y="218" width="600" height="122" fill="url(#ocean)"/>
-            <rect x="60" y="128" width="340" height="120" fill="#faf0e0"/><polygon points="60,128 230,78 400,128" fill="#edddb8"/><rect x="60" y="124" width="340" height="10" fill="#c8a050"/>
-            <rect x="80" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/><rect x="155" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/>
-            <rect x="253" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/><rect x="328" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/>
-            <rect x="188" y="192" width="84" height="56" fill="#c88060"/>
-            <rect x="540" y="108" width="36" height="122" fill="#b87040"/><circle cx="558" cy="102" r="22" fill="#3a9a3a"/>
-          </svg>
+          <img src="5bed2.jpeg" alt="PH Airbnb" class="prop-card__img"/>
           <div class="prop-card__overlay"></div>
           <span class="prop-card__badge prop-card__badge--new">New</span>
-          <div class="prop-card__price">N800,200,000</div>
+          <div class="prop-card__price">N320,200,000</div>
           <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
         </div>
         <div class="prop-card__body">
-          <h3 class="prop-card__title">PH Airbnb</h3>
-          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Port Harcourt, Rivers</p>
+          <h3 class="prop-card__title">Chevron penthouse</h3>
+          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Chevron, Lekki</p>
           <div class="prop-card__specs">
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Beds</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>4 Beds</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>6 Baths</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>6,900 sq ft</span>
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Pool</span>
           </div>
         </div>
       </article>
+
     </div>
   </div>
 </section>
@@ -520,33 +580,26 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
     <div class="carousel reveal" style="--delay:0.1s">
       <div class="carousel__viewport">
         <div class="carousel__track" id="carouselTrack">
+
           <!-- Slide 1 -->
           <div class="carousel__slide"><div class="carousel__card">
             <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4f0"/><stop offset="100%" stop-color="#deeeff"/></linearGradient><linearGradient id="c1water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3aa0d8"/><stop offset="100%" stop-color="#1a6aa8"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c1sky)"/><ellipse cx="460" cy="80" rx="65" ry="26" fill="white" opacity=".7"/><ellipse cx="130" cy="60" rx="48" ry="18" fill="white" opacity=".6"/>
-                <rect x="0" y="320" width="600" height="160" fill="url(#c1water)"/>
-                <rect x="70" y="190" width="460" height="1f50" fill="#f3ead9"/><polygon points="70,190 300,120 530,190" fill="#e2d3ad"/><rect x="70" y="186" width="460" height="10" fill="#c0a060"/>
-                <rect x="100" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/><rect x="175" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/>
-                <rect x="380" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/><rect x="455" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/>
-                <rect x="265" y="245" width="80" height="95" fill="#a07040"/><rect x="255" y="238" width="100" height="10" fill="#806030"/>
-                <rect x="30" y="240" width="30" height="100" fill="#b07848"/><circle cx="45" cy="230" r="28" fill="#4a8a3a"/>
-                <rect x="540" y="240" width="30" height="100" fill="#b07848"/><circle cx="555" cy="230" r="28" fill="#4a8a3a"/>
-              </svg>
+              <img src="5bed.jpeg" alt="The Sapphire Waterfront Estate"/>
               <div class="carousel__media-overlay"></div>
               <span class="carousel__badge">For Sale</span>
-              <div class="carousel__price-tag">&#8358;1.8B</div>
+              <div class="carousel__price-tag">&#8358;450M</div>
             </div>
             <div class="carousel__body">
-              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Banana Island, Lagos</span>
-              <h3 class="carousel__title">The Sapphire Waterfront Estate</h3>
-              <p class="carousel__desc">A landmark waterfront residence on Banana Island, blending contemporary architecture with panoramic lagoon views. Designed for entertaining and quiet luxury alike, with private jetty access and lush landscaped grounds.</p>
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>  CHEVRON TOLL GATE LEKKI LAGOS
+
+</span>
+              <h3 class="carousel__title">LUXURY 5BEDROOM FULLY DETACHED DUPLEX</h3>
+              <p class="carousel__desc">A landmark residence on CHEVRON TOLL GATE LEKKI LAGOS , blending contemporary architecture with panoramic views. Designed for entertaining and quiet luxury alike.</p>
               <div class="carousel__specs">
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>6 Bedrooms</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>7 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>Modern POP Ceiling</span>
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>1,150 sqm</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Private Jetty</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Swimming pool and heat extractor</span>
               </div>
               <div class="carousel__features"><span class="carousel__feature">Infinity Pool</span><span class="carousel__feature">Smart Home</span><span class="carousel__feature">Cinema Room</span><span class="carousel__feature">Staff Quarters</span><span class="carousel__feature">24/7 Security</span></div>
               <div class="carousel__actions">
@@ -555,35 +608,25 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
               </div>
             </div>
           </div></div>
+
           <!-- Slide 2 -->
           <div class="carousel__slide"><div class="carousel__card">
             <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c2night" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#060d1e"/><stop offset="100%" stop-color="#0e1e3d"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c2night)"/>
-                <circle cx="510" cy="70" r="20" fill="#fffacd" opacity=".85"/><circle cx="488" cy="65" r="10" fill="#0e1e3d"/>
-                <circle cx="90" cy="40" r="2.5" fill="white" opacity=".8"/><circle cx="190" cy="25" r="2" fill="white" opacity=".6"/><circle cx="330" cy="50" r="2" fill="white" opacity=".7"/><circle cx="430" cy="30" r="3" fill="white" opacity=".5"/>
-                <rect x="0" y="320" width="600" height="160" fill="#040a16"/>
-                <rect x="90" y="110" width="430" height="220" fill="#182848"/><rect x="90" y="104" width="430" height="12" fill="#c0272d"/>
-                <rect x="110" y="135" width="70" height="48" fill="#4a8fc8" opacity=".55"/><rect x="200" y="135" width="70" height="48" fill="#ffe87a" opacity=".3"/>
-                <rect x="335" y="135" width="70" height="48" fill="#4a8fc8" opacity=".55"/><rect x="425" y="135" width="70" height="48" fill="#4a8fc8" opacity=".6"/>
-                <rect x="110" y="200" width="70" height="48" fill="#4a8fc8" opacity=".45"/><rect x="200" y="200" width="70" height="48" fill="#4a8fc8" opacity=".5"/>
-                <rect x="335" y="200" width="70" height="48" fill="#ffe87a" opacity=".3"/><rect x="425" y="200" width="70" height="48" fill="#4a8fc8" opacity=".45"/>
-                <rect x="260" y="245" width="80" height="85" fill="#0e1e3d"/>
-              </svg>
+              <img src="4bed.jpeg" alt="Atlantic Heights Sky Residence"/>
               <div class="carousel__media-overlay"></div>
               <span class="carousel__badge carousel__badge--premium">Penthouse</span>
-              <div class="carousel__price-tag">&#8358;3.2B</div>
+              <div class="carousel__price-tag">&#8358;320M</div>
             </div>
             <div class="carousel__body">
-              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eko Atlantic, Lagos</span>
-              <h3 class="carousel__title">Atlantic Heights Sky Residence</h3>
-              <p class="carousel__desc">An exclusive duplex penthouse atop one of Eko Atlantic's flagship towers, offering uninterrupted ocean views, floor-to-ceiling glazing, and a private rooftop terrace built for skyline entertaining.</p>
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>CHEVRON LEKKI LAGOS</span>
+              <h3 class="carousel__title">4BEDROOM FULLY DETACHED DUPLEX</h3>
+              <p class="carousel__desc">An exclusive duplex penthouse at CHEVRON LEKKI LAGOS , offering uninterrupted beautiful views, floor-to-ceiling glazing, and a private rooftop terrace built for skyline entertaining.</p>
               <div class="carousel__specs">
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Bedrooms</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>6 Bathrooms</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>980 sqm</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>Ocean View</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>4 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>Modern Day POP Ceiling
+</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Luxury Finishing</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>Swimming pool and heat extractor</span>
               </div>
               <div class="carousel__features"><span class="carousel__feature">Rooftop Terrace</span><span class="carousel__feature">Private Elevator</span><span class="carousel__feature">Wine Cellar</span><span class="carousel__feature">Gym &amp; Spa</span><span class="carousel__feature">Concierge</span></div>
               <div class="carousel__actions">
@@ -592,33 +635,24 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
               </div>
             </div>
           </div></div>
+
           <!-- Slide 3 -->
           <div class="carousel__slide"><div class="carousel__card">
             <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4ab0e8"/><stop offset="100%" stop-color="#90d0f8"/></linearGradient><linearGradient id="c3pool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3ec8e0"/><stop offset="100%" stop-color="#1a98c0"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c3sky)"/><ellipse cx="160" cy="70" rx="72" ry="28" fill="white" opacity=".75"/><ellipse cx="470" cy="55" rx="56" ry="20" fill="white" opacity=".65"/>
-                <rect x="0" y="300" width="600" height="180" fill="#4a8a3a"/>
-                <rect x="70" y="160" width="380" height="150" fill="#faf0e0"/><polygon points="70,160 260,100 450,160" fill="#edddb8"/><rect x="70" y="156" width="380" height="10" fill="#c8a050"/>
-                <rect x="95" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/><rect x="175" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/>
-                <rect x="280" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/><rect x="360" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/>
-                <rect x="205" y="232" width="90" height="78" fill="#c88060"/>
-                <rect x="480" y="280" width="100" height="60" rx="6" fill="url(#c3pool)"/>
-                <rect x="500" y="120" width="34" height="140" fill="#b87040"/><circle cx="517" cy="112" r="24" fill="#3a9a3a"/>
-              </svg>
+              <img src="5bed2.jpeg" alt="The Parkview Crescent Villa"/>
               <div class="carousel__media-overlay"></div>
               <span class="carousel__badge carousel__badge--new">New</span>
-              <div class="carousel__price-tag">&#8358;980M</div>
+              <div class="carousel__price-tag">&#8358;990M</div>
             </div>
             <div class="carousel__body">
-              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ikoyi, Lagos</span>
-              <h3 class="carousel__title">The Parkview Crescent Villa</h3>
-              <p class="carousel__desc">A meticulously renovated colonial-style villa set within the prestigious Parkview Estate, offering mature gardens, a private pool, and a tranquil, tree-lined setting moments from the city's diplomatic district.</p>
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Osapa London, Lekki, Lagos.</span>
+              <h3 class="carousel__title">CONTEMPORARY 5BEDROOM FULLY DETACHED DUPLEX</h3>
+              <p class="carousel__desc">A meticulously renovated colonial-style villa set within the prestigious OSAPA LONDON  LEKKI LAGOS, offering mature gardens, a private pool, and a tranquil, tree-lined setting moments from the city's diplomatic district.</p>
               <div class="carousel__specs">
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Bedrooms</span>
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>5 Bathrooms</span>
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>820 sqm</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Private Pool</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Private Pool, Gym and Heat extractor</span>
               </div>
               <div class="carousel__features"><span class="carousel__feature">Mature Garden</span><span class="carousel__feature">Generator House</span><span class="carousel__feature">BQ (Staff Wing)</span><span class="carousel__feature">Borehole</span><span class="carousel__feature">Gated Estate</span></div>
               <div class="carousel__actions">
@@ -627,28 +661,19 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
               </div>
             </div>
           </div></div>
+
           <!-- Slide 4 -->
           <div class="carousel__slide"><div class="carousel__card">
             <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c4sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#eef6ff"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c4sky)"/><ellipse cx="120" cy="70" rx="60" ry="24" fill="white" opacity=".7"/><ellipse cx="440" cy="55" rx="50" ry="20" fill="white" opacity=".65"/>
-                <rect x="0" y="320" width="600" height="160" fill="#5a9e4a"/>
-                <rect x="55" y="150" width="490" height="170" fill="#f6f0e6"/><polygon points="55,150 300,90 545,150" fill="#dfd0b0"/><rect x="55" y="146" width="490" height="10" fill="#bda060"/>
-                <rect x="80" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/><rect x="160" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/>
-                <rect x="380" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/><rect x="460" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/>
-                <rect x="250" y="225" width="100" height="95" fill="#c4a880"/><rect x="240" y="216" width="120" height="12" fill="#a08860"/>
-                <rect x="20" y="240" width="32" height="100" fill="#b07848"/><circle cx="36" cy="228" r="28" fill="#4a8a3a"/>
-                <rect x="548" y="240" width="32" height="100" fill="#b07848"/><circle cx="564" cy="228" r="28" fill="#4a8a3a"/>
-              </svg>
+              <img src="5bed.jpeg" alt="Aso Hills Diplomatic Residence"/>
               <div class="carousel__media-overlay"></div>
               <span class="carousel__badge">For Sale</span>
               <div class="carousel__price-tag">&#8358;2.4B</div>
             </div>
             <div class="carousel__body">
               <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Maitama, Abuja</span>
-              <h3 class="carousel__title">Aso Hills Diplomatic Residence</h3>
-              <p class="carousel__desc">A grand residence in Maitama's diplomatic enclave, designed for high-profile living with expansive reception halls, manicured grounds, and views toward the Aso Rock escarpment.</p>
+              <h3 class="carousel__title">Abuja Hills Diplomatic Residence</h3>
+              <p class="carousel__desc">A grand residence in Maitama's diplomatic enclave, designed for high-profile living with expansive reception halls, manicured grounds</p>
               <div class="carousel__specs">
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>7 Bedrooms</span>
                 <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>8 Bathrooms</span>
@@ -662,20 +687,11 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
               </div>
             </div>
           </div></div>
+
           <!-- Slide 5 -->
           <div class="carousel__slide"><div class="carousel__card">
             <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c5sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffd9a0"/><stop offset="100%" stop-color="#ffb380"/></linearGradient><linearGradient id="c5sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a7aa8"/><stop offset="100%" stop-color="#0e4a78"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c5sky)"/><circle cx="480" cy="100" r="46" fill="#fff4d8" opacity=".9"/>
-                <rect x="0" y="300" width="600" height="180" fill="url(#c5sea)"/>
-                <rect x="60" y="170" width="480" height="140" fill="#fdeede"/><polygon points="60,170 300,108 540,170" fill="#e8c8a8"/><rect x="60" y="166" width="480" height="10" fill="#c89060"/>
-                <rect x="90" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/><rect x="180" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/>
-                <rect x="356" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/><rect x="446" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/>
-                <rect x="255" y="240" width="90" height="70" fill="#d09060"/>
-                <rect x="20" y="270" width="40" height="110" fill="#a86a40"/><circle cx="40" cy="258" r="30" fill="#4a8a3a"/>
-                <rect x="540" y="270" width="40" height="110" fill="#a86a40"/><circle cx="560" cy="258" r="30" fill="#4a8a3a"/>
-              </svg>
+              <img src="5bed.jpeg" alt="The Marina Crest Townhouse"/>
               <div class="carousel__media-overlay"></div>
               <span class="carousel__badge carousel__badge--premium">Premium</span>
               <div class="carousel__price-tag">&#8358;1.5B</div>
@@ -697,41 +713,8 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
               </div>
             </div>
           </div></div>
-          <!-- Slide 6 -->
-          <div class="carousel__slide"><div class="carousel__card">
-            <div class="carousel__media">
-              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-                <defs><linearGradient id="c6sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8c8f0"/><stop offset="100%" stop-color="#dceaff"/></linearGradient></defs>
-                <rect width="600" height="480" fill="url(#c6sky)"/><ellipse cx="500" cy="65" rx="58" ry="22" fill="white" opacity=".7"/><ellipse cx="140" cy="50" rx="50" ry="18" fill="white" opacity=".6"/>
-                <rect x="0" y="320" width="600" height="160" fill="#4a9a52"/>
-                <rect x="60" y="160" width="480" height="160" fill="#eef2f8"/><polygon points="60,160 300,95 540,160" fill="#d4dde8"/><rect x="60" y="156" width="480" height="10" fill="#9aaabe"/>
-                <rect x="85" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/><rect x="165" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/>
-                <rect x="377" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/><rect x="457" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/>
-                <rect x="255" y="235" width="90" height="85" fill="#b8c4d4"/>
-                <rect x="25" y="245" width="30" height="95" fill="#b07848"/><circle cx="40" cy="234" r="26" fill="#4a8a3a"/>
-                <rect x="545" y="245" width="30" height="95" fill="#b07848"/><circle cx="560" cy="234" r="26" fill="#4a8a3a"/>
-              </svg>
-              <div class="carousel__media-overlay"></div>
-              <span class="carousel__badge carousel__badge--new">New</span>
-              <div class="carousel__price-tag">&#8358;1.1B</div>
-            </div>
-            <div class="carousel__body">
-              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Victoria Island, Lagos</span>
-              <h3 class="carousel__title">The Adeola Court Residences</h3>
-              <p class="carousel__desc">A boutique collection of serviced apartments in the commercial heart of Victoria Island, finished to international standards and ideal for executives seeking a refined city-centre base.</p>
-              <div class="carousel__specs">
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>3 Bedrooms</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>4 Bathrooms</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>410 sqm</span>
-                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>City Centre</span>
-              </div>
-              <div class="carousel__features"><span class="carousel__feature">Serviced Apartments</span><span class="carousel__feature">Rooftop Pool</span><span class="carousel__feature">On-site Concierge</span><span class="carousel__feature">Backup Power</span><span class="carousel__feature">Secure Parking</span></div>
-              <div class="carousel__actions">
-                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
-              </div>
-            </div>
-          </div></div>
+
+
         </div>
       </div>
       <div class="carousel__controls">
@@ -809,14 +792,10 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
   </div>
 </section>
 
-<!-- =====================================================
-     ABOUT US
-     ===================================================== -->
+<!-- ABOUT US -->
 <section class="about-section" id="about-us">
   <div class="container">
     <div class="about-inner">
-
-      <!-- LEFT COLUMN -->
       <div class="about-left">
         <div class="reveal">
           <span class="section__label">About the Company</span>
@@ -827,12 +806,10 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
             <span>Registered in Nigeria &nbsp;&middot;&nbsp; <strong>RC No. 9507179</strong></span>
           </div>
         </div>
-
         <div class="about-aim reveal" style="--delay:0.12s">
           <div class="about-aim__label">Our Aim</div>
           <p class="about-aim__text">To contribute to Nigeria's economic growth by <em>absorbing capital</em>, creating meaningful employment, and delivering assets that hold and grow their value across generations.</p>
         </div>
-
         <div class="about-pillars reveal" style="--delay:0.2s">
           <div class="about-pillar">
             <div class="about-pillar__icon">&#127959;</div>
@@ -857,7 +834,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
         </div>
       </div>
 
-      <!-- RIGHT COLUMN -->
       <div class="about-right reveal" style="--delay:0.15s">
         <div class="about-timeline">
           <div class="about-timeline-item">
@@ -885,7 +861,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
             <p class="about-timeline-desc">Our long-term objective is to be recognised as Nigeria's foremost luxury real estate developer — a company synonymous with structural integrity, financial transparency, and an enduring contribution to the built environment.</p>
           </div>
         </div>
-
         <div class="about-values reveal" style="--delay:0.28s">
           <h3>Operating Principles</h3>
           <div class="about-values-list">
@@ -908,7 +883,6 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -942,15 +916,68 @@ h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="cta-section__inner reveal">
-    <span class="section__label" style="color:rgba(255,255,255,.5)">Get in Touch</span>
-    <h2>Ready to Find Your<br/><em>Perfect Property?</em></h2>
-    <p>Our advisors are standing by. No obligation. Just extraordinary results.</p>
-    <form class="cta-form" onsubmit="return false">
-      <input type="email" placeholder="Your email address" class="cta-form__input" autocomplete="email"/>
-      <button type="submit" class="btn btn--cta"><span>Get Started</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-    </form>
+<!-- CONTACT SECTION -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Contact Us</span>
+      <h2 class="section__title">
+        Let's Discuss Your <em>Next Property</em>
+      </h2>
+      <div class="section__rule"></div>
+    </div>
+
+    <div class="contact-card reveal">
+      <div class="contact-card__content">
+        <h3>Get In Touch With Halaska Homes</h3>
+
+        <p>
+          Whether you're looking to purchase a luxury residence,
+          schedule a private viewing, sell a property, or learn more
+          about our exclusive listings, our team is ready to assist you.
+        </p>
+
+        <div class="contact-details">
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              📞
+            </div>
+
+            <div>
+              <span>Phone Number</span>
+              <a href="tel:+2349160162254">
+                +234 916 016 2254
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              ✉️
+            </div>
+
+            <div>
+              <span>Email Address</span>
+              <a href="mailto:halaskaproperties@gmail.com">
+                halaskaproperties@gmail.com
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact-cta">
+          <a href="tel:+2349160162254" class="btn btn--primary">
+            Call Now
+          </a>
+
+          <a href="mailto:halaskaproperties@gmail.com" class="btn btn--cta">
+            Send Email
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
