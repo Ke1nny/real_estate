@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Halaska Homes — Luxury Real Estate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--blue:#1a3fa3;--blue-dark:#122e80;--blue-light:#2655cc;--red:#c0272d;--red-dark:#9a1e23;--white:#ffffff;--bg:#f7f8fc;--bg2:#ffffff;--bg3:#eef1f9;--text:#0a0f24;--text2:#3a4460;--text3:#7a86a4;--border:rgba(26,63,163,.1);--shadow:0 4px 24px rgba(26,63,163,.09);--shadow-lg:0 16px 56px rgba(26,63,163,.14);--nav-h:68px;--radius:10px;--radius-lg:16px;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--ease-out-quart:cubic-bezier(0.25,1,0.5,1);}
+[data-theme="dark"]{--bg:#07091a;--bg2:#0d1228;--bg3:#111730;--text:#eef1ff;--text2:#9aa4c8;--text3:#4a5475;--border:rgba(100,140,255,.1);--shadow:0 4px 24px rgba(0,0,0,.35);--shadow-lg:0 16px 56px rgba(0,0,0,.5);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .35s ease,color .35s ease;}
+img,svg{display:block;}a{color:inherit;}button{font-family:inherit;cursor:pointer;}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;}em{font-style:italic;}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:.75rem 1.75rem;border-radius:5px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s var(--ease-out-quart),box-shadow .25s;}
+.btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.15);transform:translateX(-105%) skewX(-12deg);transition:transform .5s var(--ease-out-expo);}
+.btn:hover::after{transform:translateX(105%) skewX(-12deg);}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:translateY(0);}
+.btn--primary{background:var(--red);color:white;box-shadow:0 4px 16px rgba(192,39,45,.35);}
+.btn--primary:hover{box-shadow:0 8px 28px rgba(192,39,45,.45);}
+.btn--ghost{background:transparent;color:white;border:1.5px solid rgba(255,255,255,.4);}
+.btn--ghost:hover{border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
+.btn--cta{background:white;color:var(--blue);font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.18);}
+.btn--cta:hover{box-shadow:0 8px 28px rgba(0,0,0,.25);}
+.btn--cta::after{background:rgba(26,63,163,.08);}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:200;transition:background .35s,box-shadow .35s;}
+.nav--scrolled{background:var(--bg2);box-shadow:0 1px 0 var(--border),var(--shadow);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);}
+[data-theme="dark"] .nav--scrolled{background:rgba(13,18,40,.92);}
+.nav__inner{max-width:1180px;margin:0 auto;height:100%;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.nav__logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.nav__logo img{width:36px;height:36px;object-fit:contain;border-radius:4px;}
+.nav__logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--text);letter-spacing:.02em;}
+.nav__logo-text em{color:var(--blue);font-style:normal;}
+.nav__links{display:flex;align-items:center;gap:.25rem;list-style:none;}
+.nav__link{display:inline-flex;align-items:center;gap:4px;padding:.5rem .9rem;font-size:.82rem;font-weight:500;letter-spacing:.04em;text-decoration:none;color:var(--text2);border-radius:5px;transition:color .2s,background .2s;position:relative;}
+.nav__link::after{content:'';position:absolute;bottom:4px;left:.9rem;right:.9rem;height:1.5px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-out-quart);}
+.nav__link:hover{color:var(--text);}
+.nav__link:hover::after{transform:scaleX(1);}
+.nav__link svg{transition:transform .2s;}
+.nav__link--has-dropdown:hover svg{transform:rotate(180deg);}
+.nav__dropdown{position:relative;}
+.nav__dropdown-panel{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-6px);background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);min-width:340px;padding:.75rem;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s var(--ease-out-quart),transform .25s var(--ease-out-quart),visibility .25s;}
+.nav__dropdown:hover .nav__dropdown-panel{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0);}
+.nav__dropdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;}
+.nav__dropdown-item{display:flex;align-items:center;gap:12px;padding:.75rem;border-radius:8px;text-decoration:none;color:var(--text);transition:background .2s;}
+.nav__dropdown-item:hover{background:var(--bg3);}
+.ddi__icon{font-size:1.3rem;line-height:1;flex-shrink:0;}
+.ddi__content{display:flex;flex-direction:column;gap:1px;}
+.ddi__content strong{font-size:.82rem;font-weight:600;font-family:'Inter',sans-serif;}
+.ddi__content span{font-size:.74rem;color:var(--text3);font-family:'Inter',sans-serif;}
+.nav__actions{display:flex;align-items:center;gap:.75rem;}
+.nav__theme-toggle{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg3);color:var(--text2);display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,color .25s,transform .25s;flex-shrink:0;position:relative;overflow:hidden;}
+.nav__theme-toggle:hover{background:var(--blue);border-color:var(--blue);color:white;transform:rotate(20deg);}
+.theme-toggle__sun,.theme-toggle__moon{position:absolute;display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease-out-expo),opacity .3s;}
+.theme-toggle__moon{transform:translateY(28px) rotate(-30deg);opacity:0;}
+[data-theme="dark"] .theme-toggle__sun{transform:translateY(-28px) rotate(30deg);opacity:0;}
+[data-theme="dark"] .theme-toggle__moon{transform:translateY(0) rotate(0);opacity:1;}
+.nav__cta{display:inline-flex;align-items:center;padding:.55rem 1.3rem;background:var(--blue);color:white;border-radius:5px;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s,box-shadow .2s,transform .2s;white-space:nowrap;}
+.nav__cta:hover{background:var(--blue-dark);box-shadow:0 4px 14px rgba(26,63,163,.35);transform:translateY(-1px);}
+.nav__hamburger{display:none;flex-direction:column;gap:5px;justify-content:center;width:38px;height:38px;background:none;border:none;padding:6px;}
+.nav__hamburger span{display:block;height:1.5px;background:var(--text);border-radius:2px;transition:transform .3s var(--ease-out-quart),opacity .2s;}
+.nav__hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav__hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav__hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#08143a 0%,#1a3fa3 55%,#0b1a45 100%);overflow:hidden;padding-top:var(--nav-h);}
+.hero__canvas{position:absolute;inset:0;pointer-events:none;}
+#particleCanvas{width:100%;height:100%;}
+.hero__city{position:absolute;bottom:0;left:0;right:0;color:white;animation:city-rise 1.8s var(--ease-out-expo) forwards;transform-origin:bottom;}
+@keyframes city-rise{from{transform:translateY(40px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.hero__city svg{width:100%;height:auto;}
+.hero__content{position:relative;z-index:2;text-align:center;color:white;padding:3rem 1.5rem 8rem;max-width:760px;animation:hero-in 1.2s var(--ease-out-expo) .2s both;}
+@keyframes hero-in{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:9px;padding:6px 18px;border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.5rem;backdrop-filter:blur(6px);background:rgba(255,255,255,.07);}
+.hero__eyebrow-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:eyebrow-pulse 2.4s ease-in-out infinite;}
+@keyframes eyebrow-pulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(192,39,45,.5);}50%{transform:scale(1.3);box-shadow:0 0 0 5px rgba(192,39,45,0);}}
+.hero__headline{font-size:clamp(2.8rem,6vw,5rem);font-weight:400;line-height:1.1;margin-bottom:1.25rem;letter-spacing:-.01em;}
+.hero__headline em{color:#9ec4ff;}
+.hero__subline{font-size:1.05rem;color:rgba(255,255,255,.65);max-width:500px;margin:0 auto 2.5rem;font-weight:300;line-height:1.75;}
+.hero__actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;}
+.hero__trust{display:flex;align-items:center;gap:2rem;justify-content:center;flex-wrap:wrap;}
+.hero__trust-item{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:.74rem;color:rgba(255,255,255,.55);letter-spacing:.08em;text-transform:uppercase;}
+.hero__trust-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:white;line-height:1;}
+.hero__trust-sep{width:1px;height:36px;background:rgba(255,255,255,.15);}
+.hero__scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.68rem;letter-spacing:.18em;color:rgba(255,255,255,.4);text-decoration:none;text-transform:uppercase;animation:scroll-bounce 2.5s ease-in-out infinite;}
+@keyframes scroll-bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+.hero__scroll-track{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.5),transparent);}
+.marquee{background:var(--blue);border-top:3px solid var(--red);border-bottom:3px solid var(--red);overflow:hidden;padding:.9rem 0;}
+.marquee__track{display:flex;width:max-content;animation:marquee 22s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee__set{display:flex;align-items:center;gap:2rem;padding-right:2rem;font-size:.72rem;letter-spacing:.18em;color:rgba(255,255,255,.6);text-transform:uppercase;white-space:nowrap;}
+.marquee__sep{color:var(--red);font-size:.6rem;}
+.section{padding:6rem 0;}
+.section--alt{background:var(--bg3);}
+.section__header{text-align:center;margin-bottom:3.5rem;}
+.section__label{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem;}
+.section__title{font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--text);margin-bottom:.75rem;}
+.section__title em{color:var(--blue);}
+.section__rule{width:48px;height:2.5px;background:linear-gradient(to right,var(--blue),var(--red));margin:0 auto;border-radius:2px;}
+.properties-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:2rem;}
+.prop-card{background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);transition:transform .45s var(--ease-out-expo),box-shadow .45s var(--ease-out-expo);cursor:pointer;}
+.prop-card:hover{transform:translateY(-10px) scale(1.01);box-shadow:var(--shadow-lg);}
+.prop-card__media{position:relative;height:230px;overflow:hidden;background:var(--bg3);}
+.prop-card__svg{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out-expo);}
+.prop-card:hover .prop-card__svg{transform:scale(1.04);}
+.prop-card__overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,14,36,.6) 0%,transparent 55%);transition:opacity .4s;}
+.prop-card:hover .prop-card__overlay{opacity:.85;}
+.prop-card__badge{position:absolute;top:1rem;left:1rem;background:var(--red);color:white;font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:100px;}
+.prop-card__badge--premium{background:var(--blue);}
+.prop-card__badge--new{background:#0e7a40;}
+.prop-card__price{position:absolute;bottom:1rem;right:1rem;background:rgba(8,14,36,.82);color:white;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;padding:5px 14px;border-radius:5px;backdrop-filter:blur(6px);transition:transform .35s var(--ease-out-quart);}
+.prop-card:hover .prop-card__price{transform:translateY(-4px);}
+.prop-card__hover-info{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;color:white;font-size:.8rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .35s;}
+.prop-card__hover-info svg{transition:transform .3s var(--ease-out-quart);}
+.prop-card:hover .prop-card__hover-info{opacity:1;}
+.prop-card:hover .prop-card__hover-info svg{transform:translateX(4px);}
+.prop-card__body{padding:1.4rem 1.6rem 1.6rem;}
+.prop-card__title{font-size:1.2rem;font-weight:600;color:var(--text);margin-bottom:.4rem;}
+.prop-card__loc{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--text3);margin-bottom:1.1rem;}
+.prop-card__loc svg{flex-shrink:0;}
+.prop-card__specs{display:flex;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:1rem;}
+.prop-card__specs span{display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:500;color:var(--text2);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem;}
+.svc-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.25rem 2rem;position:relative;overflow:hidden;cursor:pointer;transition:transform .4s var(--ease-out-expo),box-shadow .4s var(--ease-out-expo);}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,var(--blue),var(--red));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-out-expo);}
+.svc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,63,163,.05),transparent);opacity:0;transition:opacity .4s;}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card:hover::after{opacity:1;}
+.svc-card__icon-wrap{width:56px;height:56px;background:rgba(26,63,163,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:var(--blue);transition:background .35s,color .35s,transform .35s var(--ease-out-expo);}
+.svc-card:hover .svc-card__icon-wrap{background:var(--blue);color:white;transform:scale(1.08) rotate(-4deg);}
+.svc-card h3{font-size:1.15rem;font-weight:600;margin-bottom:.5rem;color:var(--text);}
+.svc-card p{font-size:.84rem;color:var(--text2);line-height:1.65;}
+.svc-card__arrow{display:inline-flex;align-items:center;margin-top:1.25rem;font-size:.85rem;color:var(--blue);font-weight:600;transform:translateX(0);transition:transform .3s var(--ease-out-quart),color .2s;opacity:0;}
+.svc-card:hover .svc-card__arrow{transform:translateX(6px);opacity:1;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.75rem;}
+.testi-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;position:relative;transition:transform .4s var(--ease-out-expo),box-shadow .4s var(--ease-out-expo);}
+.testi-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
+.testi-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:5rem;line-height:.8;color:var(--blue);opacity:.12;position:absolute;top:1rem;left:1.5rem;pointer-events:none;}
+.testi-card__stars{color:#b8972a;font-size:.8rem;letter-spacing:2px;margin-bottom:1rem;}
+[data-theme="dark"] .testi-card__stars{color:#e8c060;}
+.testi-card blockquote{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;border:none;padding:0;}
+.testi-card__author{display:flex;align-items:center;gap:12px;}
+.testi-card__avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:.8rem;font-weight:700;flex-shrink:0;font-family:'Inter',sans-serif;}
+.testi-card__author>div:last-child{display:flex;flex-direction:column;gap:2px;}
+.testi-card__author strong{font-size:.86rem;font-weight:600;color:var(--text);}
+.testi-card__author span{font-size:.76rem;color:var(--text3);}
+.floorplan-section{padding:6rem 0;background:var(--bg);overflow:hidden;}
+.floorplan-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.floorplan-text .section__label{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem;}
+.floorplan-text h2{font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--text);margin-bottom:1rem;}
+.floorplan-text h2 em{color:var(--blue);}
+.floorplan-text p{color:var(--text2);font-size:.92rem;line-height:1.8;margin-bottom:1.75rem;}
+.floorplan-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.fp-stat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center;}
+.fp-stat__num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--blue);}
+.fp-stat__label{font-size:.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:.12em;margin-top:2px;}
+.floorplan-canvas{position:relative;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-lg);overflow:hidden;}
+.floorplan-canvas svg{width:100%;height:auto;}
+.ticker-section{background:var(--bg3);padding:4rem 0;}
+.ticker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;}
+.ticker-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;position:relative;overflow:hidden;}
+.ticker-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--bar-color,#22a05e);transform:scaleX(0);transform-origin:left;transition:transform 1.8s var(--ease-out-expo);}
+.ticker-card.bar-in::after{transform:scaleX(var(--bar-w,0));}
+.ticker-card__loc{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem;}
+.ticker-card__price{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;color:var(--text);margin-bottom:.3rem;transition:color .3s;}
+.ticker-card__change{font-size:.75rem;font-weight:600;display:flex;align-items:center;gap:4px;}
+.ticker-card__change--up{color:#22a05e;}
+.ticker-card__change--down{color:var(--red);}
+.cta-section{background:linear-gradient(140deg,var(--blue) 0%,#061238 100%);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:rgba(192,39,45,.15);pointer-events:none;}
+.cta-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:350px;height:350px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none;}
+.cta-section__inner{position:relative;z-index:1;max-width:600px;margin:0 auto;color:white;}
+.cta-section__inner h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:1rem;}
+.cta-section__inner p{color:rgba(255,255,255,.6);max-width:420px;margin:0 auto 2.5rem;font-size:.95rem;line-height:1.7;}
+.cta-form{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+.cta-form__input{flex:1;min-width:240px;padding:.82rem 1.25rem;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:5px;color:white;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .25s,background .25s;}
+.cta-form__input::placeholder{color:rgba(255,255,255,.38);}
+.cta-form__input:focus{border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.14);}
+.footer{background:#050918;color:rgba(255,255,255,.5);padding:4rem 0 0;}
+.footer__grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07);}
+.footer__brand .footer__logo{display:flex;align-items:center;gap:9px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:white;margin-bottom:1rem;}
+.footer__brand .footer__logo img{width:30px;height:30px;object-fit:contain;border-radius:3px;}
+.footer__brand p{font-size:.82rem;line-height:1.7;max-width:300px;}
+.footer__socials{display:flex;gap:10px;margin-top:1.25rem;}
+.footer__socials a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(255,255,255,.12);border-radius:50%;color:rgba(255,255,255,.45);transition:background .25s,border-color .25s,color .25s,transform .25s;}
+.footer__socials a:hover{background:var(--blue);border-color:var(--blue);color:white;transform:translateY(-2px);}
+.footer__col h5{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:white;margin-bottom:1.1rem;font-family:'Inter',sans-serif;}
+.footer__col ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.footer__col a{font-size:.82rem;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s,padding-left .2s;display:inline-block;}
+.footer__col a:hover{color:white;padding-left:4px;}
+.footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;padding:1.5rem 0;font-size:.76rem;color:rgba(255,255,255,.25);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s var(--ease-out-expo),transform .75s var(--ease-out-expo);transition-delay:var(--delay,0s);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* =====================================================
+   CAROUSEL
+   ===================================================== */
+.carousel-section{padding:6rem 0;background:var(--bg3);}
+.carousel{position:relative;width:100%;}
+.carousel__viewport{overflow:hidden;border-radius:var(--radius-lg);}
+.carousel__track{display:flex;transition:transform .6s var(--ease-out-expo);will-change:transform;}
+.carousel__slide{flex:0 0 100%;min-width:0;}
+.carousel__card{display:grid;grid-template-columns:1fr 1fr;min-height:520px;background:var(--bg2);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-lg);}
+.carousel__media{position:relative;overflow:hidden;background:var(--bg3);min-height:340px;}
+.carousel__media svg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease-out-expo);}
+.carousel__card:hover .carousel__media svg{transform:scale(1.04);}
+.carousel__media-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,14,36,.55) 0%,transparent 50%);}
+.carousel__badge{position:absolute;top:1.25rem;left:1.25rem;background:var(--red);color:white;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:100px;z-index:2;}
+.carousel__badge--premium{background:var(--blue);}
+.carousel__badge--new{background:#0e7a40;}
+.carousel__price-tag{position:absolute;bottom:1.25rem;right:1.25rem;background:rgba(8,14,36,.85);color:white;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;padding:6px 16px;border-radius:6px;backdrop-filter:blur(8px);z-index:2;}
+.carousel__body{padding:2.25rem 2.5rem;display:flex;flex-direction:column;justify-content:center;}
+.carousel__loc{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--text3);margin-bottom:.6rem;}
+.carousel__loc svg{flex-shrink:0;color:var(--red);}
+.carousel__title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--text);line-height:1.2;margin-bottom:.85rem;}
+.carousel__desc{font-size:.84rem;color:var(--text2);line-height:1.75;margin-bottom:1.25rem;}
+.carousel__specs{display:flex;flex-wrap:wrap;gap:.65rem 1.25rem;margin-bottom:1.1rem;}
+.carousel__spec{display:flex;align-items:center;gap:6px;font-size:.77rem;font-weight:500;color:var(--text2);}
+.carousel__spec svg{color:var(--blue);flex-shrink:0;}
+.carousel__features{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;}
+.carousel__feature{font-size:.7rem;font-weight:500;letter-spacing:.06em;background:rgba(26,63,163,.07);color:var(--blue);border:1px solid rgba(26,63,163,.15);border-radius:100px;padding:4px 12px;}
+[data-theme="dark"] .carousel__feature{background:rgba(100,140,255,.08);border-color:rgba(100,140,255,.2);}
+.carousel__actions{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap;}
+.carousel__doc-link{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:500;color:var(--text3);text-decoration:none;transition:color .2s;}
+.carousel__doc-link:hover{color:var(--blue);}
+.carousel__controls{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2rem;}
+.carousel__arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--border);background:var(--bg2);color:var(--text2);display:flex;align-items:center;justify-content:center;transition:background .25s,border-color .25s,color .25s,transform .25s,box-shadow .25s;flex-shrink:0;}
+.carousel__arrow:hover{background:var(--blue);border-color:var(--blue);color:white;transform:scale(1.08);box-shadow:0 4px 16px rgba(26,63,163,.3);}
+.carousel__arrow:disabled{opacity:.35;pointer-events:none;}
+.carousel__dots{display:flex;align-items:center;gap:.5rem;}
+.carousel__dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--border);cursor:pointer;transition:background .3s,transform .3s,width .35s var(--ease-out-expo);padding:0;}
+.carousel__dot.active{background:var(--blue);width:24px;border-radius:4px;}
+
+/* =====================================================
+   ABOUT US SECTION
+   ===================================================== */
+.about-section{padding:7rem 0;background:var(--bg);position:relative;overflow:hidden;}
+.about-section::before{content:'';position:absolute;top:-160px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(26,63,163,.06) 0%,transparent 70%);pointer-events:none;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-left{}
+.about-left .section__label{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:.75rem;}
+.about-left h2{font-size:clamp(2rem,3.5vw,3rem);color:var(--text);margin-bottom:1.25rem;line-height:1.1;}
+.about-left h2 em{color:var(--blue);}
+.about-left .about-intro{font-size:1rem;color:var(--text2);line-height:1.85;margin-bottom:1.75rem;}
+.about-reg{display:inline-flex;align-items:center;gap:10px;padding:.6rem 1.2rem;background:var(--bg3);border:1px solid var(--border);border-radius:6px;font-size:.76rem;color:var(--text3);margin-bottom:2rem;}
+.about-reg strong{color:var(--text);font-weight:600;}
+.about-reg svg{color:var(--blue);flex-shrink:0;}
+.about-aim{background:linear-gradient(135deg,var(--blue) 0%,#0e2d8a 100%);border-radius:var(--radius-lg);padding:2.25rem 2.5rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;}
+.about-aim::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none;}
+.about-aim__label{font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:.6rem;}
+.about-aim__text{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;line-height:1.7;color:rgba(255,255,255,.9);}
+.about-aim__text em{color:#9ec4ff;font-style:normal;}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.about-pillar{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem 1.5rem;transition:box-shadow .3s,transform .3s var(--ease-out-quart);}
+.about-pillar:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+.about-pillar__icon{font-size:1.5rem;margin-bottom:.6rem;line-height:1;}
+.about-pillar h4{font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.3rem;}
+.about-pillar p{font-size:.76rem;color:var(--text2);line-height:1.6;}
+.about-right{}
+.about-timeline{position:relative;padding-left:2rem;}
+.about-timeline::before{content:'';position:absolute;left:7px;top:4px;bottom:0;width:1.5px;background:linear-gradient(to bottom,var(--blue),var(--red),transparent);}
+.about-timeline-item{position:relative;margin-bottom:2.25rem;}
+.about-timeline-item:last-child{margin-bottom:0;}
+.about-timeline-dot{position:absolute;left:-2rem;top:3px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:2.5px solid var(--blue);display:flex;align-items:center;justify-content:center;}
+.about-timeline-dot--active{background:var(--blue);border-color:var(--blue);}
+.about-timeline-dot--active::after{content:'';width:5px;height:5px;border-radius:50%;background:white;}
+.about-timeline-year{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+.about-timeline-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:.4rem;}
+.about-timeline-desc{font-size:.82rem;color:var(--text2);line-height:1.7;}
+.about-values{margin-top:3rem;}
+.about-values h3{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);margin-bottom:1.25rem;}
+.about-values-list{display:flex;flex-direction:column;gap:.75rem;}
+.about-value-row{display:flex;align-items:flex-start;gap:12px;}
+.about-value-row__icon{width:32px;height:32px;border-radius:8px;background:rgba(26,63,163,.08);display:flex;align-items:center;justify-content:center;color:var(--blue);flex-shrink:0;margin-top:2px;}
+.about-value-row__text strong{display:block;font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:1px;}
+.about-value-row__text span{font-size:.76rem;color:var(--text2);line-height:1.55;}
+
+@media(max-width:900px){
+  .about-inner{grid-template-columns:1fr;}
+  .about-pillars{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .about-pillars{grid-template-columns:1fr;}
+  .about-section{padding:4rem 0;}
+}
+
+/* Carousel responsive */
+@media(max-width:860px){
+  .carousel__card{grid-template-columns:1fr;min-height:auto;}
+  .carousel__media{min-height:260px;}
+  .carousel__body{padding:1.75rem;}
+}
+@media(max-width:600px){
+  .carousel__body{padding:1.25rem;}
+  .carousel__title{font-size:1.4rem;}
+  .carousel__price-tag{font-size:1.1rem;}
+}
+@media(max-width:900px){
+.nav__links{display:none;}.nav__cta{display:none;}.nav__hamburger{display:flex;}
+.nav__links.open{display:flex;flex-direction:column;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1rem 1.5rem 1.5rem;gap:.25rem;box-shadow:var(--shadow-lg);animation:menu-down .35s var(--ease-out-expo) both;}
+@keyframes menu-down{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);}}
+.nav__dropdown-panel{position:static;transform:none;box-shadow:none;border:none;background:var(--bg3);padding:.5rem 0 .5rem .75rem;opacity:1;visibility:visible;pointer-events:all;display:none;}
+.nav__dropdown.open .nav__dropdown-panel{display:block;}
+.nav__dropdown-grid{grid-template-columns:1fr;}
+.footer__grid{grid-template-columns:1fr 1fr;}.footer__brand{grid-column:1/-1;}
+.floorplan-inner{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+.container{padding:0 1.25rem;}.section,.floorplan-section,.ticker-section{padding:4rem 0;}
+.properties-grid,.services-grid,.testimonials-grid{grid-template-columns:1fr;}
+.footer__grid{grid-template-columns:1fr;}.hero__headline{font-size:2.4rem;}
+.hero__trust{flex-direction:column;gap:1rem;}.hero__trust-sep{width:40px;height:1px;}
+.floorplan-stats{grid-template-columns:1fr 1fr;}.ticker-grid{grid-template-columns:1fr 1fr;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo" aria-label="Halaska Homes home">
+      <img src="logo.jpeg" alt="Halaska Homes Logo"/>
+      <span class="nav__logo-text">Halaska<em>Homes</em></span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#properties" class="nav__link">Properties</a></li>
+      <li><a href="#services" class="nav__link">Services</a></li>
+      <li class="nav__dropdown">
+        <a href="#" class="nav__link nav__link--has-dropdown">Explore <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__dropdown-panel">
+          <div class="nav__dropdown-grid">
+            <a href="#" class="nav__dropdown-item"><span class="ddi__icon">&#127963;</span><span class="ddi__content"><strong>Estates</strong><span>Countryside manor homes</span></span></a>
+            <a href="#" class="nav__dropdown-item"><span class="ddi__icon">&#127751;</span><span class="ddi__content"><strong>Penthouses</strong><span>Urban sky residences</span></span></a>
+            <a href="#" class="nav__dropdown-item"><span class="ddi__icon">&#127754;</span><span class="ddi__content"><strong>Waterfront</strong><span>Oceanside villas</span></span></a>
+            <a href="#" class="nav__dropdown-item"><span class="ddi__icon">&#127956;</span><span class="ddi__content"><strong>Mountain</strong><span>Alpine retreats</span></span></a>
+          </div>
+        </div>
+      </li>
+      <li><a href="#about-us" class="nav__link">About</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="nav__theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle__sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+        <span class="theme-toggle__moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="#contact" class="nav__cta">Schedule Viewing</a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero__canvas"><canvas id="particleCanvas"></canvas></div>
+  <div class="hero__city">
+    <svg viewBox="0 0 1400 300" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <rect x="50" y="120" width="90" height="180" fill="currentColor" opacity=".07"/><polygon points="50,120 95,75 140,120" fill="currentColor" opacity=".1"/>
+      <rect x="65" y="145" width="18" height="18" fill="currentColor" opacity=".15"/><rect x="65" y="175" width="18" height="18" fill="currentColor" opacity=".15"/>
+      <rect x="100" y="145" width="18" height="18" fill="currentColor" opacity=".15"/><rect x="100" y="175" width="18" height="18" fill="currentColor" opacity=".15"/>
+      <rect x="72" y="220" width="26" height="80" fill="currentColor" opacity=".12"/>
+      <rect x="170" y="60" width="110" height="240" fill="currentColor" opacity=".09"/><polygon points="170,60 225,20 280,60" fill="currentColor" opacity=".12"/>
+      <rect x="185" y="85" width="22" height="22" fill="currentColor" opacity=".18"/><rect x="225" y="85" width="22" height="22" fill="currentColor" opacity=".18"/>
+      <rect x="185" y="125" width="22" height="22" fill="currentColor" opacity=".18"/><rect x="225" y="125" width="22" height="22" fill="currentColor" opacity=".18"/>
+      <rect x="185" y="165" width="22" height="22" fill="currentColor" opacity=".18"/><rect x="225" y="165" width="22" height="22" fill="currentColor" opacity=".18"/>
+      <rect x="207" y="215" width="26" height="85" fill="currentColor" opacity=".14"/>
+      <rect x="310" y="100" width="75" height="200" fill="currentColor" opacity=".07"/><polygon points="310,100 347,65 384,100" fill="currentColor" opacity=".1"/>
+      <rect x="1000" y="90" width="120" height="210" fill="currentColor" opacity=".09"/><polygon points="1000,90 1060,45 1120,90" fill="currentColor" opacity=".12"/>
+      <rect x="1015" y="115" width="24" height="24" fill="currentColor" opacity=".16"/><rect x="1080" y="115" width="24" height="24" fill="currentColor" opacity=".16"/>
+      <rect x="1015" y="155" width="24" height="24" fill="currentColor" opacity=".16"/><rect x="1080" y="155" width="24" height="24" fill="currentColor" opacity=".16"/>
+      <rect x="1047" y="210" width="26" height="90" fill="currentColor" opacity=".13"/>
+      <rect x="1160" y="40" width="150" height="260" fill="currentColor" opacity=".08"/><polygon points="1160,40 1235,-5 1310,40" fill="currentColor" opacity=".11"/>
+      <rect x="1178" y="70" width="26" height="26" fill="currentColor" opacity=".17"/><rect x="1268" y="70" width="26" height="26" fill="currentColor" opacity=".17"/>
+      <rect x="1178" y="115" width="26" height="26" fill="currentColor" opacity=".17"/><rect x="1268" y="115" width="26" height="26" fill="currentColor" opacity=".17"/>
+      <rect x="1178" y="160" width="26" height="26" fill="currentColor" opacity=".17"/><rect x="1268" y="160" width="26" height="26" fill="currentColor" opacity=".17"/>
+      <rect x="1223" y="210" width="24" height="90" fill="currentColor" opacity=".13"/>
+      <rect x="1340" y="110" width="80" height="190" fill="currentColor" opacity=".07"/><polygon points="1340,110 1380,72 1420,110" fill="currentColor" opacity=".1"/>
+    </svg>
+  </div>
+  <div class="hero__content">
+    <span class="hero__eyebrow"><span class="hero__eyebrow-dot"></span>Exclusive Portfolio 2026</span>
+    <h1 class="hero__headline">Where <em>Extraordinary</em><br/>Meets Home</h1>
+    <p class="hero__subline">Curating Nigeria's finest residences for those who live without compromise. From waterfront villas to city penthouses.</p>
+    <div class="hero__actions">
+      <a href="#properties" class="btn btn--primary"><span>Explore Properties</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#contact" class="btn btn--ghost">Book a Consultation</a>
+    </div>
+    <div class="hero__trust">
+      <div class="hero__trust-item"><span class="hero__trust-num" data-count="1200">0</span><span>Properties Sold</span></div>
+      <div class="hero__trust-sep"></div>
+      <div class="hero__trust-item"><span class="hero__trust-num" data-count="98">0</span><span>% Satisfaction</span></div>
+      <div class="hero__trust-sep"></div>
+      <div class="hero__trust-item"><span class="hero__trust-num" data-count="2026">0</span><span>Est. Year</span></div>
+    </div>
+  </div>
+  <a href="#properties" class="hero__scroll" aria-label="Scroll down"><div class="hero__scroll-track"></div><span>Scroll</span></a>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__set"><span>Abuja</span><span class="marquee__sep">&#9670;</span><span>Port-Harcourt</span><span class="marquee__sep">&#9670;</span><span>Lagos</span><span class="marquee__sep">&#9670;</span><span>Calabar</span><span class="marquee__sep">&#9670;</span><span>Uyo</span><span class="marquee__sep">&#9670;</span><span>Delta</span><span class="marquee__sep">&#9670;</span><span>Edo</span><span class="marquee__sep">&#9670;</span><span>Kano</span><span class="marquee__sep">&#9670;</span></div>
+    <div class="marquee__set" aria-hidden="true"><span>Abuja</span><span class="marquee__sep">&#9670;</span><span>Port-Harcourt</span><span class="marquee__sep">&#9670;</span><span>Lagos</span><span class="marquee__sep">&#9670;</span><span>Calabar</span><span class="marquee__sep">&#9670;</span><span>Uyo</span><span class="marquee__sep">&#9670;</span><span>Delta</span><span class="marquee__sep">&#9670;</span><span>Edo</span><span class="marquee__sep">&#9670;</span><span>Kano</span><span class="marquee__sep">&#9670;</span></div>
+  </div>
+</div>
+
+<!-- GLOBAL PROPERTIES GRID -->
+<section class="section" id="properties">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Featured Listings</span>
+      <h2 class="section__title">Exceptional Properties</h2>
+      <div class="section__rule"></div>
+    </div>
+    <div class="properties-grid">
+      <article class="prop-card reveal" style="--delay:0.1s">
+        <div class="prop-card__media">
+          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4f0"/><stop offset="100%" stop-color="#deeeff"/></linearGradient><linearGradient id="grass1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a9e4a"/><stop offset="100%" stop-color="#3a7a2a"/></linearGradient></defs>
+            <rect width="600" height="340" fill="url(#sky1)"/><ellipse cx="460" cy="70" rx="60" ry="24" fill="white" opacity=".7"/><ellipse cx="490" cy="62" rx="44" ry="18" fill="white" opacity=".85"/><ellipse cx="120" cy="55" rx="45" ry="18" fill="white" opacity=".65"/>
+            <rect x="0" y="235" width="600" height="105" fill="url(#grass1)"/>
+            <rect x="80" y="148" width="440" height="120" fill="#f0e6d2"/><polygon points="80,148 300,82 520,148" fill="#ddd0b4"/><rect x="80" y="144" width="440" height="12" fill="#c0a060"/>
+            <rect x="108" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/><rect x="178" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/>
+            <rect x="370" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/><rect x="440" y="170" width="52" height="48" fill="#9ec4e8" opacity=".8"/>
+            <rect x="260" y="195" width="80" height="73" fill="#a07040"/><rect x="250" y="188" width="100" height="10" fill="#806030"/>
+            <rect x="30" y="188" width="28" height="80" fill="#b07848"/><circle cx="44" cy="180" r="26" fill="#4a8a3a"/>
+            <rect x="542" y="188" width="28" height="80" fill="#b07848"/><circle cx="556" cy="180" r="26" fill="#4a8a3a"/>
+          </svg>
+          <div class="prop-card__overlay"></div>
+          <span class="prop-card__badge">For Sale</span>
+          <div class="prop-card__price">N400,850,000</div>
+          <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+        <div class="prop-card__body">
+          <h3 class="prop-card__title">Lekki Penthouse</h3>
+          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lekki, Lagos</p>
+          <div class="prop-card__specs">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>6 Beds</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>5 Baths</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>8,200 sq ft</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="m16 8 5 2v6h-5V8zM1 18h20M7 3v5"/></svg>2 Garage</span>
+          </div>
+        </div>
+      </article>
+      <article class="prop-card reveal" style="--delay:0.22s">
+        <div class="prop-card__media">
+          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#060d1e"/><stop offset="100%" stop-color="#0e1e3d"/></linearGradient></defs>
+            <rect width="600" height="340" fill="url(#night)"/>
+            <circle cx="520" cy="48" r="16" fill="#fffacd" opacity=".85"/><circle cx="502" cy="45" r="8" fill="#0e1e3d"/>
+            <circle cx="80" cy="30" r="2.5" fill="white" opacity=".8"/><circle cx="180" cy="18" r="2" fill="white" opacity=".6"/><circle cx="320" cy="40" r="2" fill="white" opacity=".7"/><circle cx="420" cy="22" r="3" fill="white" opacity=".5"/><circle cx="240" cy="12" r="1.5" fill="white" opacity=".9"/>
+            <rect x="0" y="200" width="600" height="140" fill="#040a16"/>
+            <rect x="100" y="60" width="400" height="185" fill="#182848"/><rect x="100" y="55" width="400" height="12" fill="#c0272d"/>
+            <rect x="115" y="80" width="68" height="44" fill="#4a8fc8" opacity=".55"/><rect x="200" y="80" width="68" height="44" fill="#4a8fc8" opacity=".6"/>
+            <rect x="332" y="80" width="68" height="44" fill="#4a8fc8" opacity=".55"/><rect x="417" y="80" width="68" height="44" fill="#4a8fc8" opacity=".6"/>
+            <rect x="115" y="140" width="68" height="44" fill="#4a8fc8" opacity=".45"/><rect x="200" y="140" width="68" height="44" fill="#ffe87a" opacity=".25"/>
+            <rect x="332" y="140" width="68" height="44" fill="#4a8fc8" opacity=".45"/><rect x="417" y="140" width="68" height="44" fill="#ffe87a" opacity=".3"/>
+            <rect x="255" y="185" width="90" height="60" fill="#0e1e3d"/>
+          </svg>
+          <div class="prop-card__overlay"></div>
+          <span class="prop-card__badge prop-card__badge--premium">Premium</span>
+          <div class="prop-card__price">N500,500,000</div>
+          <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+        <div class="prop-card__body">
+          <h3 class="prop-card__title">Abuja Luxury Penthouse</h3>
+          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Abuja, Nigeria</p>
+          <div class="prop-card__specs">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>4 Beds</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>4 Baths</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>5,800 sq ft</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>City View</span>
+          </div>
+        </div>
+      </article>
+      <article class="prop-card reveal" style="--delay:0.34s">
+        <div class="prop-card__media">
+          <svg class="prop-card__svg" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4ab0e8"/><stop offset="100%" stop-color="#90d0f8"/></linearGradient><linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a8acc"/><stop offset="100%" stop-color="#0a5090"/></linearGradient></defs>
+            <rect width="600" height="340" fill="url(#sky3)"/>
+            <ellipse cx="150" cy="65" rx="70" ry="26" fill="white" opacity=".75"/><ellipse cx="460" cy="50" rx="55" ry="20" fill="white" opacity=".65"/>
+            <rect x="0" y="218" width="600" height="122" fill="url(#ocean)"/>
+            <rect x="60" y="128" width="340" height="120" fill="#faf0e0"/><polygon points="60,128 230,78 400,128" fill="#edddb8"/><rect x="60" y="124" width="340" height="10" fill="#c8a050"/>
+            <rect x="80" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/><rect x="155" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/>
+            <rect x="253" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/><rect x="328" y="150" width="56" height="42" fill="#88c4e8" opacity=".75"/>
+            <rect x="188" y="192" width="84" height="56" fill="#c88060"/>
+            <rect x="540" y="108" width="36" height="122" fill="#b87040"/><circle cx="558" cy="102" r="22" fill="#3a9a3a"/>
+          </svg>
+          <div class="prop-card__overlay"></div>
+          <span class="prop-card__badge prop-card__badge--new">New</span>
+          <div class="prop-card__price">N800,200,000</div>
+          <div class="prop-card__hover-info"><span>View Details</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+        <div class="prop-card__body">
+          <h3 class="prop-card__title">PH Airbnb</h3>
+          <p class="prop-card__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Port Harcourt, Rivers</p>
+          <div class="prop-card__specs">
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Beds</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>6 Baths</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>6,900 sq ft</span>
+            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Pool</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NIGERIAN PROPERTIES CAROUSEL -->
+<section class="carousel-section" id="nigeria">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Featured Listings</span>
+      <h2 class="section__title">Exceptional <em>Nigerian</em> Properties</h2>
+      <div class="section__rule"></div>
+    </div>
+    <div class="carousel reveal" style="--delay:0.1s">
+      <div class="carousel__viewport">
+        <div class="carousel__track" id="carouselTrack">
+          <!-- Slide 1 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c1sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8d4f0"/><stop offset="100%" stop-color="#deeeff"/></linearGradient><linearGradient id="c1water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3aa0d8"/><stop offset="100%" stop-color="#1a6aa8"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c1sky)"/><ellipse cx="460" cy="80" rx="65" ry="26" fill="white" opacity=".7"/><ellipse cx="130" cy="60" rx="48" ry="18" fill="white" opacity=".6"/>
+                <rect x="0" y="320" width="600" height="160" fill="url(#c1water)"/>
+                <rect x="70" y="190" width="460" height="1f50" fill="#f3ead9"/><polygon points="70,190 300,120 530,190" fill="#e2d3ad"/><rect x="70" y="186" width="460" height="10" fill="#c0a060"/>
+                <rect x="100" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/><rect x="175" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/>
+                <rect x="380" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/><rect x="455" y="215" width="55" height="48" fill="#9ec4e8" opacity=".8"/>
+                <rect x="265" y="245" width="80" height="95" fill="#a07040"/><rect x="255" y="238" width="100" height="10" fill="#806030"/>
+                <rect x="30" y="240" width="30" height="100" fill="#b07848"/><circle cx="45" cy="230" r="28" fill="#4a8a3a"/>
+                <rect x="540" y="240" width="30" height="100" fill="#b07848"/><circle cx="555" cy="230" r="28" fill="#4a8a3a"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge">For Sale</span>
+              <div class="carousel__price-tag">&#8358;1.8B</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Banana Island, Lagos</span>
+              <h3 class="carousel__title">The Sapphire Waterfront Estate</h3>
+              <p class="carousel__desc">A landmark waterfront residence on Banana Island, blending contemporary architecture with panoramic lagoon views. Designed for entertaining and quiet luxury alike, with private jetty access and lush landscaped grounds.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>6 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>7 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>1,150 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Private Jetty</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Infinity Pool</span><span class="carousel__feature">Smart Home</span><span class="carousel__feature">Cinema Room</span><span class="carousel__feature">Staff Quarters</span><span class="carousel__feature">24/7 Security</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+          <!-- Slide 2 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c2night" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#060d1e"/><stop offset="100%" stop-color="#0e1e3d"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c2night)"/>
+                <circle cx="510" cy="70" r="20" fill="#fffacd" opacity=".85"/><circle cx="488" cy="65" r="10" fill="#0e1e3d"/>
+                <circle cx="90" cy="40" r="2.5" fill="white" opacity=".8"/><circle cx="190" cy="25" r="2" fill="white" opacity=".6"/><circle cx="330" cy="50" r="2" fill="white" opacity=".7"/><circle cx="430" cy="30" r="3" fill="white" opacity=".5"/>
+                <rect x="0" y="320" width="600" height="160" fill="#040a16"/>
+                <rect x="90" y="110" width="430" height="220" fill="#182848"/><rect x="90" y="104" width="430" height="12" fill="#c0272d"/>
+                <rect x="110" y="135" width="70" height="48" fill="#4a8fc8" opacity=".55"/><rect x="200" y="135" width="70" height="48" fill="#ffe87a" opacity=".3"/>
+                <rect x="335" y="135" width="70" height="48" fill="#4a8fc8" opacity=".55"/><rect x="425" y="135" width="70" height="48" fill="#4a8fc8" opacity=".6"/>
+                <rect x="110" y="200" width="70" height="48" fill="#4a8fc8" opacity=".45"/><rect x="200" y="200" width="70" height="48" fill="#4a8fc8" opacity=".5"/>
+                <rect x="335" y="200" width="70" height="48" fill="#ffe87a" opacity=".3"/><rect x="425" y="200" width="70" height="48" fill="#4a8fc8" opacity=".45"/>
+                <rect x="260" y="245" width="80" height="85" fill="#0e1e3d"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge carousel__badge--premium">Penthouse</span>
+              <div class="carousel__price-tag">&#8358;3.2B</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Eko Atlantic, Lagos</span>
+              <h3 class="carousel__title">Atlantic Heights Sky Residence</h3>
+              <p class="carousel__desc">An exclusive duplex penthouse atop one of Eko Atlantic's flagship towers, offering uninterrupted ocean views, floor-to-ceiling glazing, and a private rooftop terrace built for skyline entertaining.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>6 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>980 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>Ocean View</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Rooftop Terrace</span><span class="carousel__feature">Private Elevator</span><span class="carousel__feature">Wine Cellar</span><span class="carousel__feature">Gym &amp; Spa</span><span class="carousel__feature">Concierge</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+          <!-- Slide 3 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c3sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4ab0e8"/><stop offset="100%" stop-color="#90d0f8"/></linearGradient><linearGradient id="c3pool" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3ec8e0"/><stop offset="100%" stop-color="#1a98c0"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c3sky)"/><ellipse cx="160" cy="70" rx="72" ry="28" fill="white" opacity=".75"/><ellipse cx="470" cy="55" rx="56" ry="20" fill="white" opacity=".65"/>
+                <rect x="0" y="300" width="600" height="180" fill="#4a8a3a"/>
+                <rect x="70" y="160" width="380" height="150" fill="#faf0e0"/><polygon points="70,160 260,100 450,160" fill="#edddb8"/><rect x="70" y="156" width="380" height="10" fill="#c8a050"/>
+                <rect x="95" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/><rect x="175" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/>
+                <rect x="280" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/><rect x="360" y="185" width="60" height="46" fill="#88c4e8" opacity=".75"/>
+                <rect x="205" y="232" width="90" height="78" fill="#c88060"/>
+                <rect x="480" y="280" width="100" height="60" rx="6" fill="url(#c3pool)"/>
+                <rect x="500" y="120" width="34" height="140" fill="#b87040"/><circle cx="517" cy="112" r="24" fill="#3a9a3a"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge carousel__badge--new">New</span>
+              <div class="carousel__price-tag">&#8358;980M</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ikoyi, Lagos</span>
+              <h3 class="carousel__title">The Parkview Crescent Villa</h3>
+              <p class="carousel__desc">A meticulously renovated colonial-style villa set within the prestigious Parkview Estate, offering mature gardens, a private pool, and a tranquil, tree-lined setting moments from the city's diplomatic district.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>5 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>5 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>820 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 14c0 2.2 2.2 4 5 4s5-1.8 5-4v-4H7v4zM4 10h16"/></svg>Private Pool</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Mature Garden</span><span class="carousel__feature">Generator House</span><span class="carousel__feature">BQ (Staff Wing)</span><span class="carousel__feature">Borehole</span><span class="carousel__feature">Gated Estate</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+          <!-- Slide 4 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c4sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cfe6ff"/><stop offset="100%" stop-color="#eef6ff"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c4sky)"/><ellipse cx="120" cy="70" rx="60" ry="24" fill="white" opacity=".7"/><ellipse cx="440" cy="55" rx="50" ry="20" fill="white" opacity=".65"/>
+                <rect x="0" y="320" width="600" height="160" fill="#5a9e4a"/>
+                <rect x="55" y="150" width="490" height="170" fill="#f6f0e6"/><polygon points="55,150 300,90 545,150" fill="#dfd0b0"/><rect x="55" y="146" width="490" height="10" fill="#bda060"/>
+                <rect x="80" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/><rect x="160" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/>
+                <rect x="380" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/><rect x="460" y="175" width="60" height="50" fill="#a8d0ec" opacity=".8"/>
+                <rect x="250" y="225" width="100" height="95" fill="#c4a880"/><rect x="240" y="216" width="120" height="12" fill="#a08860"/>
+                <rect x="20" y="240" width="32" height="100" fill="#b07848"/><circle cx="36" cy="228" r="28" fill="#4a8a3a"/>
+                <rect x="548" y="240" width="32" height="100" fill="#b07848"/><circle cx="564" cy="228" r="28" fill="#4a8a3a"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge">For Sale</span>
+              <div class="carousel__price-tag">&#8358;2.4B</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Maitama, Abuja</span>
+              <h3 class="carousel__title">Aso Hills Diplomatic Residence</h3>
+              <p class="carousel__desc">A grand residence in Maitama's diplomatic enclave, designed for high-profile living with expansive reception halls, manicured grounds, and views toward the Aso Rock escarpment.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>7 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>8 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>1,400 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="m16 8 5 2v6h-5V8zM1 18h20M7 3v5"/></svg>6 Garage</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Banquet Hall</span><span class="carousel__feature">Home Office Suite</span><span class="carousel__feature">Landscaped Gardens</span><span class="carousel__feature">CCTV &amp; Perimeter Wall</span><span class="carousel__feature">Solar Backup</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+          <!-- Slide 5 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c5sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffd9a0"/><stop offset="100%" stop-color="#ffb380"/></linearGradient><linearGradient id="c5sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a7aa8"/><stop offset="100%" stop-color="#0e4a78"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c5sky)"/><circle cx="480" cy="100" r="46" fill="#fff4d8" opacity=".9"/>
+                <rect x="0" y="300" width="600" height="180" fill="url(#c5sea)"/>
+                <rect x="60" y="170" width="480" height="140" fill="#fdeede"/><polygon points="60,170 300,108 540,170" fill="#e8c8a8"/><rect x="60" y="166" width="480" height="10" fill="#c89060"/>
+                <rect x="90" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/><rect x="180" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/>
+                <rect x="356" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/><rect x="446" y="195" width="64" height="48" fill="#88c4e8" opacity=".7"/>
+                <rect x="255" y="240" width="90" height="70" fill="#d09060"/>
+                <rect x="20" y="270" width="40" height="110" fill="#a86a40"/><circle cx="40" cy="258" r="30" fill="#4a8a3a"/>
+                <rect x="540" y="270" width="40" height="110" fill="#a86a40"/><circle cx="560" cy="258" r="30" fill="#4a8a3a"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge carousel__badge--premium">Premium</span>
+              <div class="carousel__price-tag">&#8358;1.5B</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lekki Phase 1, Lagos</span>
+              <h3 class="carousel__title">The Marina Crest Townhouse</h3>
+              <p class="carousel__desc">A contemporary five-unit townhouse complex with private rooftop decks, set in the heart of Lekki Phase 1 — minutes from the beach, restaurants, and the city's most vibrant social scene.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>4 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>5 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>620 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6l2 2 4-4 4 4 4-4 4 4 4-4 2 2"/></svg>Rooftop Deck</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Smart Lighting</span><span class="carousel__feature">EV Charging</span><span class="carousel__feature">Co-working Lounge</span><span class="carousel__feature">Gym</span><span class="carousel__feature">24/7 Power</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+          <!-- Slide 6 -->
+          <div class="carousel__slide"><div class="carousel__card">
+            <div class="carousel__media">
+              <svg viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs><linearGradient id="c6sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8c8f0"/><stop offset="100%" stop-color="#dceaff"/></linearGradient></defs>
+                <rect width="600" height="480" fill="url(#c6sky)"/><ellipse cx="500" cy="65" rx="58" ry="22" fill="white" opacity=".7"/><ellipse cx="140" cy="50" rx="50" ry="18" fill="white" opacity=".6"/>
+                <rect x="0" y="320" width="600" height="160" fill="#4a9a52"/>
+                <rect x="60" y="160" width="480" height="160" fill="#eef2f8"/><polygon points="60,160 300,95 540,160" fill="#d4dde8"/><rect x="60" y="156" width="480" height="10" fill="#9aaabe"/>
+                <rect x="85" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/><rect x="165" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/>
+                <rect x="377" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/><rect x="457" y="185" width="58" height="48" fill="#7ab0d8" opacity=".75"/>
+                <rect x="255" y="235" width="90" height="85" fill="#b8c4d4"/>
+                <rect x="25" y="245" width="30" height="95" fill="#b07848"/><circle cx="40" cy="234" r="26" fill="#4a8a3a"/>
+                <rect x="545" y="245" width="30" height="95" fill="#b07848"/><circle cx="560" cy="234" r="26" fill="#4a8a3a"/>
+              </svg>
+              <div class="carousel__media-overlay"></div>
+              <span class="carousel__badge carousel__badge--new">New</span>
+              <div class="carousel__price-tag">&#8358;1.1B</div>
+            </div>
+            <div class="carousel__body">
+              <span class="carousel__loc"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Victoria Island, Lagos</span>
+              <h3 class="carousel__title">The Adeola Court Residences</h3>
+              <p class="carousel__desc">A boutique collection of serviced apartments in the commercial heart of Victoria Island, finished to international standards and ideal for executives seeking a refined city-centre base.</p>
+              <div class="carousel__specs">
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h18M5 13V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v6M3 17v2h18v-2"/></svg>3 Bedrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6C9 3.8 7.2 2 5 2S1 3.8 1 6v4h22V9a3 3 0 0 0-3-3H9z"/></svg>4 Bathrooms</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>410 sqm</span>
+                <span class="carousel__spec"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>City Centre</span>
+              </div>
+              <div class="carousel__features"><span class="carousel__feature">Serviced Apartments</span><span class="carousel__feature">Rooftop Pool</span><span class="carousel__feature">On-site Concierge</span><span class="carousel__feature">Backup Power</span><span class="carousel__feature">Secure Parking</span></div>
+              <div class="carousel__actions">
+                <a href="#contact" class="btn btn--primary"><span>Schedule Viewing</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                <a href="#" class="carousel__doc-link"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Brochure (PDF)</a>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__arrow" id="carouselPrev" aria-label="Previous property"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="carousel__dots" id="carouselDots"></div>
+        <button class="carousel__arrow" id="carouselNext" aria-label="Next property"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOORPLAN -->
+<section class="floorplan-section" id="floorplan">
+  <div class="container">
+    <div class="floorplan-inner">
+      <div class="floorplan-text reveal">
+        <span class="section__label">Architectural Preview</span>
+        <h2>Every <em>Detail</em> Considered</h2>
+        <p>Our architectural team crafts each space with intention — maximising natural light, flow, and livability. Every square foot is a testament to refined design.</p>
+        <div class="floorplan-stats">
+          <div class="fp-stat"><div class="fp-stat__num" data-count="340">0</div><div class="fp-stat__label">Avg. sqm</div></div>
+          <div class="fp-stat"><div class="fp-stat__num" data-count="12">0</div><div class="fp-stat__label">Rooms avg.</div></div>
+          <div class="fp-stat"><div class="fp-stat__num" data-count="4">0</div><div class="fp-stat__label">Bathrooms</div></div>
+          <div class="fp-stat"><div class="fp-stat__num" data-count="95">0</div><div class="fp-stat__label">% Natural Light</div></div>
+        </div>
+        <a href="#contact" class="btn btn--primary"><span>Request Floor Plans</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="floorplan-canvas reveal" style="--delay:0.2s" id="floorplanCanvas"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<section class="ticker-section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Live Market Data</span>
+      <h2 class="section__title">Prime Market <em>Prices</em></h2>
+      <div class="section__rule"></div>
+    </div>
+    <div class="ticker-grid" id="tickerGrid"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section--alt" id="services">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">What We Offer</span>
+      <h2 class="section__title">Our Services</h2>
+      <div class="section__rule"></div>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card reveal" style="--delay:0.05s">
+        <div class="svc-card__icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Property Sales</h3><p>Expert guidance through buying or selling your luxury property from listing to close.</p>
+        <div class="svc-card__arrow">&#8594;</div>
+      </div>
+      <div class="svc-card reveal" style="--delay:0.15s">
+        <div class="svc-card__icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+        <h3>Property Management</h3><p>Full-service management for investment properties, maximising yield year-round.</p>
+        <div class="svc-card__arrow">&#8594;</div>
+      </div>
+      <div class="svc-card reveal" style="--delay:0.25s">
+        <div class="svc-card__icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>Market Analysis</h3><p>Deep market intelligence to power data-driven investment decisions that perform.</p>
+        <div class="svc-card__arrow">&#8594;</div>
+      </div>
+      <div class="svc-card reveal" style="--delay:0.35s">
+        <div class="svc-card__icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Estate Consulting</h3><p>Strategic advice for managing complex real estate portfolios across multiple markets.</p>
+        <div class="svc-card__arrow">&#8594;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     ABOUT US
+     ===================================================== -->
+<section class="about-section" id="about-us">
+  <div class="container">
+    <div class="about-inner">
+
+      <!-- LEFT COLUMN -->
+      <div class="about-left">
+        <div class="reveal">
+          <span class="section__label">About the Company</span>
+          <h2>Built on Purpose.<br/><em>Rooted in Nigeria.</em></h2>
+          <p class="about-intro">Halaska Homes Limited is a Nigerian real estate development and property management company established to redefine what luxury living means in Africa's most dynamic property market. From our first project, we have operated with a singular conviction: that quality construction, transparent dealings, and long-term stewardship produce outcomes that benefit not only our clients, but the communities and economy around them.</p>
+          <div class="about-reg">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            <span>Registered in Nigeria &nbsp;&middot;&nbsp; <strong>RC No. 9507179</strong></span>
+          </div>
+        </div>
+
+        <div class="about-aim reveal" style="--delay:0.12s">
+          <div class="about-aim__label">Our Aim</div>
+          <p class="about-aim__text">To contribute to Nigeria's economic growth by <em>absorbing capital</em>, creating meaningful employment, and delivering assets that hold and grow their value across generations.</p>
+        </div>
+
+        <div class="about-pillars reveal" style="--delay:0.2s">
+          <div class="about-pillar">
+            <div class="about-pillar__icon">&#127959;</div>
+            <h4>Development</h4>
+            <p>We originate, design, and deliver residential and mixed-use developments to the highest specification.</p>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar__icon">&#128200;</div>
+            <h4>Capital Absorption</h4>
+            <p>We channel domestic and diaspora investment into tangible, income-generating real estate assets.</p>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar__icon">&#128101;</div>
+            <h4>Job Creation</h4>
+            <p>From construction labour to property management, every project we deliver supports Nigerian livelihoods.</p>
+          </div>
+          <div class="about-pillar">
+            <div class="about-pillar__icon">&#9889;</div>
+            <h4>Long-Term Value</h4>
+            <p>We build to last — structurally, financially, and socially — so the assets we create appreciate over time.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="about-right reveal" style="--delay:0.15s">
+        <div class="about-timeline">
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot about-timeline-dot--active"></div>
+            <div class="about-timeline-year">2026 — Founding</div>
+            <div class="about-timeline-title">Incorporated in Nigeria</div>
+            <p class="about-timeline-desc">Halaska Homes Limited was formally registered with the Corporate Affairs Commission of Nigeria (RC No. 9507179), headquartered in Nigeria with a mandate to operate across the country's primary real estate markets.</p>
+          </div>
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-year">2026 — Market Entry</div>
+            <div class="about-timeline-title">Portfolio Launch</div>
+            <p class="about-timeline-desc">We launched our inaugural portfolio across Lagos and Abuja, targeting high-demand residential segments — from premium family homes in Ikoyi and Lekki to executive serviced apartments on Victoria Island and Eko Atlantic.</p>
+          </div>
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-year">Near-Term</div>
+            <div class="about-timeline-title">National Expansion</div>
+            <p class="about-timeline-desc">We are actively building a presence in Port Harcourt, Calabar, Kano, and other emerging urban centres, with plans to extend our property management services to commercial and institutional clients nationwide.</p>
+          </div>
+          <div class="about-timeline-item">
+            <div class="about-timeline-dot"></div>
+            <div class="about-timeline-year">Vision</div>
+            <div class="about-timeline-title">Nigeria's Most Trusted Developer</div>
+            <p class="about-timeline-desc">Our long-term objective is to be recognised as Nigeria's foremost luxury real estate developer — a company synonymous with structural integrity, financial transparency, and an enduring contribution to the built environment.</p>
+          </div>
+        </div>
+
+        <div class="about-values reveal" style="--delay:0.28s">
+          <h3>Operating Principles</h3>
+          <div class="about-values-list">
+            <div class="about-value-row">
+              <div class="about-value-row__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <div class="about-value-row__text"><strong>Integrity in Every Transaction</strong><span>We operate with full transparency in all dealings — with clients, investors, regulators, and contractors.</span></div>
+            </div>
+            <div class="about-value-row">
+              <div class="about-value-row__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div class="about-value-row__text"><strong>Delivery Discipline</strong><span>We hold ourselves to agreed timelines and budgets. Our reputation is built on properties completed as promised.</span></div>
+            </div>
+            <div class="about-value-row">
+              <div class="about-value-row__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+              <div class="about-value-row__text"><strong>Client-Centred Service</strong><span>From initial consultation to post-handover management, our clients receive structured, professional support at every stage.</span></div>
+            </div>
+            <div class="about-value-row">
+              <div class="about-value-row__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg></div>
+              <div class="about-value-row__text"><strong>Economic Responsibility</strong><span>We measure our success not only by returns, but by the jobs, tax receipts, and enduring infrastructure we contribute to Nigeria.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Client Stories</span>
+      <h2 class="section__title">Trusted by the World's Most<br/><em>Discerning Buyers</em></h2>
+      <div class="section__rule"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal" style="--delay:0.1s">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&#8220;Halaska Homes found the home we had dreamed of for years. Their knowledge of the luxury market is simply unmatched in this city.&#8221;</blockquote>
+        <div class="testi-card__author"><div class="testi-card__avatar" style="background:#1a3fa3">OE</div><div><strong>Okeke Ebuka</strong><span>CEO, Maesan</span></div></div>
+      </div>
+      <div class="testi-card reveal" style="--delay:0.22s">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&#8220;Their white-glove service made selling our estate effortless. We received 18% above asking price within the first week.&#8221;</blockquote>
+        <div class="testi-card__author"><div class="testi-card__avatar" style="background:#c0272d">SO</div><div><strong>Steve Okpara</strong><span>Private Investor</span></div></div>
+      </div>
+      <div class="testi-card reveal" style="--delay:0.34s">
+        <div class="testi-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <blockquote>&#8220;From the first consultation to handing over the keys, every detail was handled with impeccable professionalism and care.&#8221;</blockquote>
+        <div class="testi-card__author"><div class="testi-card__avatar" style="background:#0e5e3a">RK</div><div><strong>Robert Kwame</strong><span>Tech Entrepreneur</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-section__inner reveal">
+    <span class="section__label" style="color:rgba(255,255,255,.5)">Get in Touch</span>
+    <h2>Ready to Find Your<br/><em>Perfect Property?</em></h2>
+    <p>Our advisors are standing by. No obligation. Just extraordinary results.</p>
+    <form class="cta-form" onsubmit="return false">
+      <input type="email" placeholder="Your email address" class="cta-form__input" autocomplete="email"/>
+      <button type="submit" class="btn btn--cta"><span>Get Started</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo"><img src="logo.jpeg" alt="Halaska Homes"/><span>Halaska Homes</span></div>
+        <p>A registered Nigerian real estate development and property management company (RC No. 9507179), committed to delivering exceptional properties and long-term value across Nigeria.</p>
+        <div class="footer__socials">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col"><h5>Properties</h5><ul><li><a href="#">Buy a Home</a></li><li><a href="#">Sell Your Home</a></li><li><a href="#">Rentals</a></li><li><a href="#">New Developments</a></li><li><a href="#">Commercial</a></li></ul></div>
+      <div class="footer__col"><h5>Company</h5><ul><li><a href="#about-us">About Us</a></li><li><a href="#">Our Team</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="footer__col"><h5>Markets</h5><ul><li><a href="#">Lagos</a></li><li><a href="#">Abuja</a></li><li><a href="#">Port Harcourt</a></li><li><a href="#">Calabar</a></li><li><a href="#">Nationwide</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><span>&#169; 2026 Halaska Homes Limited. RC No. 9507179. All rights reserved.</span><span>Privacy Policy &#183; Terms of Use</span></div>
+  </div>
+</footer>
+
+<script>
+/* ─── Theme ─────────────────────────────────────────────── */
+const html = document.documentElement;
+const themeBtn = document.getElementById('themeToggle');
+const saved = localStorage.getItem('pe-theme') || 'light';
+html.setAttribute('data-theme', saved);
+themeBtn.addEventListener('click', function() {
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('pe-theme', next);
+});
+
+/* ─── Nav scroll ─────────────────────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('nav--scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* ─── Mobile menu ────────────────────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+document.querySelectorAll('.nav__dropdown .nav__link--has-dropdown').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (window.innerWidth <= 900) {
+      e.preventDefault();
+      link.closest('.nav__dropdown').classList.toggle('open');
+    }
+  });
+});
+
+/* ─── Reveal on scroll ───────────────────────────────────── */
+const revealObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('in-view'); revealObs.unobserve(e.target); }
+  });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(function(el) { revealObs.observe(el); });
+
+/* ─── Count-up animation ─────────────────────────────────── */
+function animateCount(el, target, dur) {
+  dur = dur || 1800;
+  var start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    var p = Math.min((ts - start) / dur, 1);
+    var ease = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.floor(ease * target);
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const countObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      animateCount(e.target, parseInt(e.target.dataset.count));
+      countObs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.5});
+document.querySelectorAll('[data-count]').forEach(function(el) { countObs.observe(el); });
+
+/* ─── Particle canvas ────────────────────────────────────── */
+(function() {
+  var canvas = document.getElementById('particleCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [];
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+  function P() { this.reset(true); }
+  P.prototype.reset = function(init) {
+    this.x = Math.random() * W;
+    this.y = init ? Math.random() * H : H + 10;
+    this.s = Math.random() * 2.5 + 1;
+    this.op = Math.random() * 0.35 + 0.05;
+    this.spd = Math.random() * 0.35 + 0.1;
+    this.drift = (Math.random() - 0.5) * 0.25;
+    this.type = Math.random() > 0.8 ? 'house' : 'dot';
+  };
+  P.prototype.update = function() {
+    this.y -= this.spd; this.x += this.drift; this.op -= 0.0006;
+    if (this.y < -10 || this.op <= 0) this.reset();
+  };
+  P.prototype.draw = function() {
+    ctx.save(); ctx.globalAlpha = Math.max(0, this.op); ctx.fillStyle = '#fff';
+    if (this.type === 'house') {
+      var s = this.s * 2.5;
+      ctx.beginPath(); ctx.moveTo(this.x, this.y - s); ctx.lineTo(this.x + s, this.y); ctx.lineTo(this.x - s, this.y); ctx.closePath(); ctx.fill();
+      ctx.fillRect(this.x - s * 0.55, this.y, s * 1.1, s);
+      ctx.fillStyle = 'rgba(0,0,0,0.2)'; ctx.fillRect(this.x - s*0.15, this.y + s*0.3, s*0.3, s*0.7);
+    } else { ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI*2); ctx.fill(); }
+    ctx.restore();
+  };
+  for (var i = 0; i < 80; i++) particles.push(new P());
+  function loop() { ctx.clearRect(0, 0, W, H); particles.forEach(function(p) { p.update(); p.draw(); }); requestAnimationFrame(loop); }
+  loop();
+})();
+
+/* ─── Floorplan SVG ──────────────────────────────────────── */
+(function() {
+  var container = document.getElementById('floorplanCanvas');
+  if (!container) return;
+  var ns = 'http://www.w3.org/2000/svg';
+  var svg = document.createElementNS(ns, 'svg');
+  svg.setAttribute('viewBox', '0 0 420 320'); svg.style.width = '100%'; svg.style.display = 'block';
+  var STROKE = '#1a3fa3', ACCENT = '#c0272d';
+  function line(x1,y1,x2,y2,delay,color,w){ var el = document.createElementNS(ns,'line'); el.setAttribute('x1',x1); el.setAttribute('y1',y1); el.setAttribute('x2',x2); el.setAttribute('y2',y2); el.setAttribute('stroke',color||STROKE); el.setAttribute('stroke-width',w||1.5); var len = Math.hypot(x2-x1, y2-y1) + 5; el.style.strokeDasharray = len; el.style.strokeDashoffset = len; el.style.transition = 'stroke-dashoffset 1.2s cubic-bezier(0.16,1,0.3,1) '+delay+'s'; return el; }
+  function rect(x,y,w,h,delay,stroke,fill,fillOp,fillDelay){ var el = document.createElementNS(ns,'rect'); el.setAttribute('x',x); el.setAttribute('y',y); el.setAttribute('width',w); el.setAttribute('height',h); el.setAttribute('stroke',stroke||STROKE); el.setAttribute('stroke-width','1.5'); el.setAttribute('fill',fill||'none'); if(fill&&fill!=='none'){el.setAttribute('fill-opacity','0');} var perim = 2*(w+h); el.style.strokeDasharray = perim; el.style.strokeDashoffset = perim; var tr = 'stroke-dashoffset 1.4s cubic-bezier(0.16,1,0.3,1) '+delay+'s'; if(fill&&fill!=='none') tr += ', fill-opacity 0.6s ease '+(fillDelay||delay+1.2)+'s'; el.style.transition = tr; el._fillTarget = (fill&&fill!=='none') ? fillOp||0.07 : null; return el; }
+  function text(x,y,txt,delay,color,size,anchor){ var el = document.createElementNS(ns,'text'); el.setAttribute('x',x); el.setAttribute('y',y); el.setAttribute('text-anchor',anchor||'middle'); el.setAttribute('font-size',size||7.5); el.setAttribute('fill',color||STROKE); el.setAttribute('font-family','Inter,sans-serif'); el.setAttribute('letter-spacing','0.6'); el.style.opacity='0'; el.style.transition='opacity 0.5s ease '+delay+'s'; el.textContent = txt; return el; }
+  function dot(cx,cy,r,delay,color){ var el = document.createElementNS(ns,'circle'); el.setAttribute('cx',cx); el.setAttribute('cy',cy); el.setAttribute('r',r||4); el.setAttribute('fill',color||ACCENT); el.style.opacity='0'; el.style.transition='opacity 0.4s ease '+delay+'s'; return el; }
+  var all = [], texts = [], dots = [];
+  var outer = rect(20,20,380,280,0.05,STROKE,'rgba(26,63,163,0.07)',0.07,1.5); all.push(outer);
+  all.push(line(180,20,180,210,0.5,STROKE)); all.push(line(300,20,300,210,0.6,STROKE)); all.push(line(20,140,180,140,0.8,STROKE)); all.push(line(180,210,400,210,0.9,STROKE)); all.push(line(300,130,400,130,1.0,STROKE)); all.push(line(180,100,200,80,1.3,ACCENT,1)); all.push(line(180,210,200,230,1.4,ACCENT,1)); all.push(line(300,100,280,80,1.35,ACCENT,1)); all.push(line(300,130,320,150,1.45,ACCENT,1));
+  [[55,20,80,20],[95,20,120,20],[210,20,250,20],[320,20,360,20],[400,65,400,95],[400,150,400,175],[20,70,20,100],[20,165,20,195]].forEach(function(w,i){ all.push(line(w[0],w[1],w[2],w[3],1.6+i*0.06,ACCENT,2.5)); });
+  [rect(21,21,158,118,1.2,STROKE,'rgba(26,63,163,0.06)',0.06,2.0),rect(21,141,158,68,1.3,STROKE,'rgba(26,63,163,0.04)',0.04,2.1),rect(181,21,118,188,1.1,STROKE,'rgba(192,39,45,0.04)',0.04,2.0),rect(301,21,98,108,1.15,STROKE,'rgba(26,63,163,0.05)',0.05,2.05),rect(301,131,98,78,1.25,STROKE,'rgba(26,63,163,0.04)',0.04,2.15),rect(21,211,378,88,1.4,STROKE,'rgba(26,63,163,0.05)',0.05,2.2)].forEach(function(el){ all.push(el); });
+  texts.push(text(100,85,'MASTER',2.1,STROKE,7.5)); texts.push(text(100,95,'BEDROOM',2.15,STROKE,7.5)); texts.push(text(100,175,'STUDY',2.2,STROKE,7.5)); texts.push(text(240,110,'LIVING ROOM',2.1,STROKE,7.5)); texts.push(text(350,80,'DINING',2.15,STROKE,7.5)); texts.push(text(350,165,'BATH',2.2,STROKE,7.5)); texts.push(text(210,260,'KITCHEN & OPEN PLAN',2.25,STROKE,7.5));
+  dots.push(dot(100,75,4,2.4,ACCENT)); dots.push(dot(240,95,4,2.45,ACCENT)); dots.push(dot(210,245,4,2.5,ACCENT));
+  var scaleG = document.createElementNS(ns,'g'); scaleG.style.opacity='0'; scaleG.style.transition='opacity 0.5s ease 2.6s';
+  var sl=document.createElementNS(ns,'line');sl.setAttribute('x1','22');sl.setAttribute('y1','308');sl.setAttribute('x2','82');sl.setAttribute('y2','308');sl.setAttribute('stroke',STROKE);sl.setAttribute('stroke-width','1');
+  var s1=document.createElementNS(ns,'line');s1.setAttribute('x1','22');s1.setAttribute('y1','304');s1.setAttribute('x2','22');s1.setAttribute('y2','312');s1.setAttribute('stroke',STROKE);s1.setAttribute('stroke-width','1');
+  var s2=document.createElementNS(ns,'line');s2.setAttribute('x1','82');s2.setAttribute('y1','304');s2.setAttribute('x2','82');s2.setAttribute('y2','312');s2.setAttribute('stroke',STROKE);s2.setAttribute('stroke-width','1');
+  var st=document.createElementNS(ns,'text');st.setAttribute('x','52');st.setAttribute('y','306');st.setAttribute('text-anchor','middle');st.setAttribute('font-size','6');st.setAttribute('fill',STROKE);st.setAttribute('font-family','Inter,sans-serif');st.textContent='0         5m';
+  var north=document.createElementNS(ns,'g');north.setAttribute('transform','translate(395,300)');
+  var na=document.createElementNS(ns,'line');na.setAttribute('x1','0');na.setAttribute('y1','0');na.setAttribute('x2','0');na.setAttribute('y2','-18');na.setAttribute('stroke',ACCENT);na.setAttribute('stroke-width','2');
+  var nt=document.createElementNS(ns,'text');nt.setAttribute('x','0');nt.setAttribute('y','-20');nt.setAttribute('text-anchor','middle');nt.setAttribute('font-size','8');nt.setAttribute('fill',ACCENT);nt.setAttribute('font-family','Inter,sans-serif');nt.setAttribute('font-weight','700');nt.textContent='N';
+  scaleG.appendChild(sl);scaleG.appendChild(s1);scaleG.appendChild(s2);scaleG.appendChild(st);north.appendChild(na);north.appendChild(nt);scaleG.appendChild(north);
+  all.forEach(function(el){ svg.appendChild(el); }); texts.forEach(function(el){ svg.appendChild(el); }); dots.forEach(function(el){ svg.appendChild(el); }); svg.appendChild(scaleG);
+  container.appendChild(svg);
+  var fpObs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (!e.isIntersecting) return; all.forEach(function(el){ el.style.strokeDashoffset = '0'; if (el._fillTarget !== null) setTimeout(function(){ el.setAttribute('fill-opacity', el._fillTarget); }, 100); }); texts.forEach(function(el){ el.style.opacity = '1'; }); dots.forEach(function(el){ el.style.opacity = '1'; }); scaleG.style.opacity = '1'; fpObs.unobserve(e.target); }); }, {threshold: 0.3});
+  fpObs.observe(container);
+})();
+
+/* ─── Market ticker ──────────────────────────────────────── */
+(function() {
+  var markets = [
+    {loc:'Banana Island, Lagos', price:'&#8358;1.8B', change:'+3.1%', up:true,  bar:0.88},
+    {loc:'Eko Atlantic, Lagos',  price:'&#8358;3.2B', change:'+2.4%', up:true,  bar:0.94},
+    {loc:'Ikoyi, Lagos',         price:'&#8358;980M', change:'+1.9%', up:true,  bar:0.80},
+    {loc:'Maitama, Abuja',       price:'&#8358;2.4B', change:'-0.3%', up:false, bar:0.62},
+    {loc:'Lekki Phase 1',        price:'&#8358;1.5B', change:'+4.2%', up:true,  bar:0.85},
+    {loc:'Victoria Island',      price:'&#8358;1.1B', change:'+1.1%', up:true,  bar:0.72},
+  ];
+  var grid = document.getElementById('tickerGrid');
+  markets.forEach(function(m){
+    var card = document.createElement('div');
+    card.className = 'ticker-card reveal';
+    card.style.setProperty('--bar-color', m.up ? '#22a05e' : '#c0272d');
+    card.style.setProperty('--bar-w', m.bar);
+    card.innerHTML = '<div class="ticker-card__loc">'+m.loc+'</div><div class="ticker-card__price">'+m.price+'</div><div class="ticker-card__change ticker-card__change--'+(m.up?'up':'down')+'">'+(m.up?'&#9650;':'&#9660;')+' '+m.change+' <span style="font-weight:400;color:var(--text3);margin-left:4px">avg. list</span></div>';
+    grid.appendChild(card);
+    revealObs.observe(card);
+  });
+  var barObs = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (e.isIntersecting) { setTimeout(function(){ e.target.classList.add('bar-in'); }, 200); barObs.unobserve(e.target); }}); }, {threshold:0.3});
+  grid.querySelectorAll('.ticker-card').forEach(function(c){ barObs.observe(c); });
+  setInterval(function(){
+    var cards = grid.querySelectorAll('.ticker-card');
+    var c = cards[Math.floor(Math.random() * cards.length)];
+    var p = c.querySelector('.ticker-card__price');
+    if (!p) return;
+    p.style.color = '#22a05e';
+    setTimeout(function(){ p.style.color = ''; }, 600);
+  }, 3500);
+})();
+
+/* ─── Hero parallax ──────────────────────────────────────── */
+var heroCity = document.querySelector('.hero__city');
+window.addEventListener('scroll', function(){
+  if (heroCity && window.scrollY < window.innerHeight) heroCity.style.transform = 'translateY('+window.scrollY*0.28+'px)';
+}, {passive:true});
+
+/* ─── Property card tilt ─────────────────────────────────── */
+document.querySelectorAll('.prop-card').forEach(function(card){
+  card.addEventListener('mousemove', function(e){
+    var r = card.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = 'translateY(-10px) scale(1.01) perspective(800px) rotateX('+(-y*4)+'deg) rotateY('+(x*4)+'deg)';
+  });
+  card.addEventListener('mouseleave', function(){ card.style.transform = ''; });
+});
+
+/* ─── CAROUSEL ───────────────────────────────────────────── */
+(function() {
+  var track     = document.getElementById('carouselTrack');
+  var dotsWrap  = document.getElementById('carouselDots');
+  var prevBtn   = document.getElementById('carouselPrev');
+  var nextBtn   = document.getElementById('carouselNext');
+  if (!track) return;
+  var slides = track.querySelectorAll('.carousel__slide');
+  var total = slides.length;
+  var current = 0;
+  var autoTimer = null;
+  var isDragging = false;
+  var dragStartX = 0;
+  var dragDeltaX = 0;
+  slides.forEach(function(_, i) {
+    var d = document.createElement('button');
+    d.className = 'carousel__dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    d.addEventListener('click', function() { goTo(i); resetAuto(); });
+    dotsWrap.appendChild(d);
+  });
+  function updateDots() { dotsWrap.querySelectorAll('.carousel__dot').forEach(function(d, i) { d.classList.toggle('active', i === current); }); }
+  function updateButtons() { prevBtn.disabled = current === 0; nextBtn.disabled = current === total - 1; }
+  function goTo(idx) { current = Math.max(0, Math.min(idx, total - 1)); track.style.transform = 'translateX(-' + (current * 100) + '%)'; updateDots(); updateButtons(); }
+  prevBtn.addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+  nextBtn.addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+  document.addEventListener('keydown', function(e) {
+    var viewport = track.closest('.carousel__viewport');
+    if (!viewport) return;
+    var rect = viewport.getBoundingClientRect();
+    var inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+    if (e.key === 'ArrowLeft') { goTo(current - 1); resetAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+  });
+  var viewport = track.closest('.carousel__viewport');
+  function onDragStart(x) { isDragging = true; dragStartX = x; dragDeltaX = 0; track.style.transition = 'none'; }
+  function onDragMove(x) { if (!isDragging) return; dragDeltaX = x - dragStartX; track.style.transform = 'translateX(calc(' + (-(current * 100)) + '% + ' + dragDeltaX + 'px))'; }
+  function onDragEnd() { if (!isDragging) return; isDragging = false; track.style.transition = ''; var threshold = viewport.offsetWidth * 0.2; if (dragDeltaX < -threshold && current < total - 1) goTo(current + 1); else if (dragDeltaX > threshold && current > 0) goTo(current - 1); else goTo(current); resetAuto(); }
+  viewport.addEventListener('touchstart', function(e) { onDragStart(e.touches[0].clientX); }, {passive:true});
+  viewport.addEventListener('touchmove',  function(e) { onDragMove(e.touches[0].clientX); },  {passive:true});
+  viewport.addEventListener('touchend',   onDragEnd);
+  viewport.addEventListener('mousedown',  function(e) { onDragStart(e.clientX); });
+  window.addEventListener('mousemove',    function(e) { if (isDragging) onDragMove(e.clientX); });
+  window.addEventListener('mouseup',      onDragEnd);
+  function startAuto() { autoTimer = setInterval(function() { goTo(current < total - 1 ? current + 1 : 0); }, 6000); }
+  function resetAuto() { clearInterval(autoTimer); startAuto(); }
+  var carouselEl = track.closest('.carousel');
+  if (carouselEl) { carouselEl.addEventListener('mouseenter', function() { clearInterval(autoTimer); }); carouselEl.addEventListener('mouseleave', startAuto); }
+  updateButtons();
+  startAuto();
+})();
+</script>
+</body>
+</html>
